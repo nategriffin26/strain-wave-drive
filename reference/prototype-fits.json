@@ -1,0 +1,1241 @@
+{
+  "units": "mm unless a field explicitly names degrees, teeth, count or fraction",
+  "sources": [
+    "Printed prototype, January 2026",
+    "Fusion design v83/v12"
+  ],
+  "measurement_method": "Analytic CAD cylinders and planar sections; STL horizontal sections and vertex radii. Printed-polymer dimensions and forces were not measured.",
+  "default_tolerance_mm": 0.02,
+  "records": [
+    {
+      "id": "tooth_counts",
+      "fit": "Module and tooth counts",
+      "category": "Teeth",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "module_mm": 0.7,
+        "flex_teeth": 120,
+        "circular_teeth": 122,
+        "dynamic_teeth": 120
+      },
+      "fusion_v12": {
+        "module_mm": 0.7,
+        "flex_teeth": 120,
+        "circular_teeth": 122,
+        "dynamic_teeth": 120
+      },
+      "printed_prototype": {
+        "flex_teeth": 120,
+        "circular_teeth": 122,
+        "dynamic_teeth": 120
+      },
+      "clearance": {},
+      "note": "STL cannot independently encode a pitch-circle/module parameter. Module is established by native parameters; tooth counts are measured."
+    },
+    {
+      "id": "flex_tooth_form",
+      "fit": "Flex tooth form",
+      "category": "Teeth",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "root_chord_mm": 1.4,
+        "tip_chord_mm": 0.35,
+        "radial_addendum_from_root_circle_mm": 1.54,
+        "flank_angle_deg": 18.757245,
+        "pressure_angle_parameter_deg": 30
+      },
+      "fusion_v12": {
+        "root_chord_mm": 1.4,
+        "tip_chord_mm": 0.35,
+        "radial_addendum_from_root_circle_mm": 1.54,
+        "flank_angle_deg": 18.757245,
+        "pressure_angle_parameter_deg": 30
+      },
+      "printed_prototype": {
+        "root_chord_mm": 1.4,
+        "tip_chord_mm": 0.35,
+        "radial_addendum_mm": 1.54
+      },
+      "clearance": {},
+      "note": "Pressure_Angle=30\u00b0 is a parameter, not the measured flank angle. Root-circle intersection adds 0.00596 to the flank radial run; not an involute."
+    },
+    {
+      "id": "fixed_slot_form",
+      "fit": "Circular slot form",
+      "category": "Teeth",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "mouth_width_mm": 1.25,
+        "root_width_mm": 0.55,
+        "slot_depth_mm": 1.46,
+        "slot_widening_parameter_mm": 0.2
+      },
+      "fusion_v12": {
+        "mouth_width_mm": 1.25,
+        "root_width_mm": 0.55,
+        "slot_depth_mm": 1.46,
+        "slot_widening_parameter_mm": 0.2
+      },
+      "printed_prototype": {
+        "mouth_width_mm": 1.25,
+        "root_width_mm": 0.55,
+        "slot_depth_mm": 1.46
+      },
+      "clearance": {},
+      "note": "Measured slots are trapezoidal. Tiny STEP edges at the circular boundary are retained in the evidence; widening is not a measured backlash rating."
+    },
+    {
+      "id": "dynamic_slot_form",
+      "fit": "Dynamic slot form",
+      "category": "Teeth",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "mouth_width_mm": 1.25,
+        "root_width_mm": 0.61,
+        "root_plus_mm": 0.335,
+        "root_minus_mm": 0.275,
+        "slot_depth_mm": 1.46
+      },
+      "fusion_v12": {
+        "mouth_width_mm": 1.25,
+        "root_width_mm": 0.61,
+        "root_plus_mm": 0.335,
+        "root_minus_mm": 0.275,
+        "slot_depth_mm": 1.46
+      },
+      "printed_prototype": {
+        "mouth_width_mm": 1.25,
+        "root_width_mm": 0.61,
+        "slot_depth_mm": 1.46
+      },
+      "clearance": {
+        "root_width_difference_mm": 0.26
+      },
+      "note": "Root sides are +0.335/\u22120.275 about the tooth centerline; preserve this asymmetry when reproducing the original."
+    },
+    {
+      "id": "flex_diameters",
+      "fit": "Flex external diameters",
+      "category": "Teeth",
+      "tuned_by_print": true,
+      "fusion_v83": {
+        "root_diameter_mm": 82.25,
+        "tip_diameter_mm": 85.330718
+      },
+      "fusion_v12": {
+        "root_diameter_mm": 82.85,
+        "tip_diameter_mm": 85.930713
+      },
+      "printed_prototype": {
+        "plain_root_mm": 82.25,
+        "plain_tip_mm": 85.330734,
+        "planetary_root_mm": 82.85,
+        "planetary_tip_mm": 85.930734
+      },
+      "clearance": {},
+      "note": "Tip envelope includes the 0.175 mm half-width of the flat tooth tip; across flats is 85.33 / 85.93."
+    },
+    {
+      "id": "rigid_diameters",
+      "fit": "Rigid internal diameters",
+      "category": "Teeth",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "tip_diameter_mm": 84,
+        "root_envelope_diameter_mm": 86.923
+      },
+      "fusion_v12": {
+        "tip_diameter_mm": 84,
+        "root_envelope_diameter_mm": 86.923
+      },
+      "printed_prototype": {
+        "circular_root_mm": 86.92283,
+        "dynamic_root_mm": 86.922586,
+        "tip_diameter_mm": 84
+      },
+      "clearance": {},
+      "note": "Root diameter is the polar envelope at slot corners, not twice the 43.46 mm slot floor coordinate."
+    },
+    {
+      "id": "radial_tip_clearance",
+      "fit": "Undeformed radial tooth clearances",
+      "category": "Teeth",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "tip_to_slot_floor_mm": 0.795,
+        "rigid_tip_to_flex_root_mm": 0.875
+      },
+      "fusion_v12": {
+        "tip_to_slot_floor_mm": 0.495,
+        "rigid_tip_to_flex_root_mm": 0.575
+      },
+      "printed_prototype": {
+        "plain_tip_to_floor_mm": 0.795,
+        "planetary_tip_to_floor_mm": 0.495
+      },
+      "clearance": {
+        "plain_radial_mm": 0.795,
+        "planetary_radial_mm": 0.495
+      },
+      "note": "Concentric radial construction clearances, not full meshing clearance at every phase. Plain roller lift of 0.7 leaves about 0.095 at the major-axis tip-to-slot floor."
+    },
+    {
+      "id": "tooth_bands",
+      "fit": "Tooth bands above motor face",
+      "category": "Teeth",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "fixed_z_mm": [
+          6.85,
+          14.3
+        ],
+        "dynamic_z_mm": [
+          15,
+          23.4
+        ],
+        "flex_z_mm": [
+          7.25,
+          23.25
+        ]
+      },
+      "fusion_v12": {
+        "fixed_z_mm": [
+          6.85,
+          14.1
+        ],
+        "dynamic_z_mm": [
+          15,
+          23.4
+        ],
+        "flex_z_mm": [
+          7.25,
+          23.25
+        ]
+      },
+      "printed_prototype": {
+        "fixed_z_mm": [
+          6.85,
+          14.1
+        ],
+        "dynamic_z_mm": [
+          15,
+          23.4
+        ],
+        "flex_z_mm": [
+          7.25,
+          23.25
+        ]
+      },
+      "clearance": {
+        "band_gap_mm": 0.9,
+        "fixed_engagement_height_mm": 6.85,
+        "dynamic_engagement_height_mm": 8.25
+      },
+      "note": "Flex installed at 7.25\u201323.25 above face; actual fixed/flex overlap 6.85 mm in V3, dynamic/flex 8.25. Width_Gear=2.5 does not describe these bands."
+    },
+    {
+      "id": "plain_flex_wall",
+      "fit": "Plain flex wall, bore and height",
+      "category": "Flex",
+      "tuned_by_print": true,
+      "fusion_v83": {
+        "bore_diameter_mm": 79.25,
+        "wall_mm": 1.5,
+        "height_mm": 16
+      },
+      "fusion_v12": {},
+      "printed_prototype": {
+        "bore_diameter_mm": 79.25,
+        "wall_mm": 1.5,
+        "height_mm": 16
+      },
+      "clearance": {},
+      "note": "Plain print source. V2 and V3 flex meshes have the same dimensions; height and wall are confirmed print-tuned by Nate."
+    },
+    {
+      "id": "intermediate_flex",
+      "fit": "Intermediate Flexspline_v2",
+      "category": "Flex",
+      "tuned_by_print": true,
+      "fusion_v83": {},
+      "fusion_v12": {},
+      "printed_prototype": {
+        "height_mm": 16.6,
+        "external_band_local_z_mm": [
+          0.6,
+          16.6
+        ],
+        "internal_teeth": 120,
+        "inner_tip_diameter_mm": 76.6389,
+        "inner_root_diameter_mm": 79.3,
+        "minimum_web_mm": 1.475
+      },
+      "clearance": {},
+      "note": "This is not merely a 0.6 mm taller plain flex: it has internal involute-like teeth and a 0.6 mm external-root-only skirt. Latest file modification Jan 17; actual print order unknown."
+    },
+    {
+      "id": "planetary_flex_wall",
+      "fit": "Herringbone flex wall and bore",
+      "category": "Flex",
+      "tuned_by_print": true,
+      "fusion_v83": {},
+      "fusion_v12": {
+        "height_mm": 16,
+        "inner_tip_diameter_mm": 75.973856,
+        "inner_root_diameter_mm": 79.591856,
+        "minimum_web_mm": 1.629072
+      },
+      "printed_prototype": {
+        "height_mm": 16,
+        "inner_tip_diameter_mm": 75.973856,
+        "inner_root_diameter_mm": 79.591856,
+        "outer_root_diameter_mm": 82.85,
+        "minimum_web_mm": 1.629072
+      },
+      "clearance": {
+        "minimum_web_mm": 1.629072
+      },
+      "note": "The outer root is 82.85, 0.60 larger than plain. The 1.5 mm user parameter does not equal the final minimum web after the herringbone cut. Latest herringbone file modification Jan 20."
+    },
+    {
+      "id": "plain_roller_preload",
+      "fit": "Plain roller preload",
+      "category": "Wave generator",
+      "tuned_by_print": true,
+      "fusion_v83": {
+        "axis_radius_mm": 35.325,
+        "roller_od_mm": 10,
+        "flex_bore_mm": 79.25
+      },
+      "fusion_v12": {
+        "axis_radius_mm": 35.325,
+        "roller_od_mm": 10,
+        "flex_bore_mm": 79.25
+      },
+      "printed_prototype": {
+        "axis_radius_mm": 35.325,
+        "roller_od_mm": 10,
+        "flex_bore_mm": 79.25
+      },
+      "clearance": {
+        "radial_clearance_mm": -0.7
+      },
+      "note": "35.325 + 5 \u2212 79.25/2 = 0.700 outward displacement at each major-axis contact. Two 4 mm-wide bearings per axle."
+    },
+    {
+      "id": "roller_axles",
+      "fit": "Plain axle bores and roller window",
+      "category": "Wave generator",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "axle_hole_mm": 3.2,
+        "lower_pilot_mm": 4.2,
+        "roller_window_height_mm": 10
+      },
+      "fusion_v12": {
+        "axle_hole_mm": 3.2,
+        "lower_pilot_mm": 4.2,
+        "roller_window_height_mm": 10
+      },
+      "printed_prototype": {
+        "axle_hole_mm": 3.2,
+        "lower_pilot_mm": 4.2,
+        "roller_window_height_mm": 10
+      },
+      "clearance": {
+        "axle_diametral_mm": 0.2,
+        "bare_bearing_pair_axial_mm": 2
+      },
+      "note": "The roller window is an open cut, not a \u00d810.2 press-fit pocket. \u00d810.2 at the center is a separate carrier bore."
+    },
+    {
+      "id": "carrier_center_bore",
+      "fit": "Carrier center counterbore",
+      "category": "Wave generator",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "counterbore_mm": 10.2,
+        "counterbore_depth_mm": 10,
+        "shaft_bore_mm": 6.35
+      },
+      "fusion_v12": {
+        "counterbore_mm": 10.2,
+        "counterbore_depth_mm": 10,
+        "shaft_bore_mm": 6.35
+      },
+      "printed_prototype": {
+        "counterbore_mm": 10.2,
+        "counterbore_depth_mm": 10,
+        "shaft_bore_mm": 6.35
+      },
+      "clearance": {
+        "shaft_diametral_mm": 0
+      },
+      "note": "The printed shaft flat is angled relative to the STL axes; a scalar diameter does not prove installed D-flat clearance. The catalog coupling also transmits input."
+    },
+    {
+      "id": "planetary_gear_geometry",
+      "fit": "Planetary tooth system",
+      "category": "Planetary",
+      "tuned_by_print": false,
+      "fusion_v83": {},
+      "fusion_v12": {
+        "sun_teeth": 28,
+        "planet_teeth": 28,
+        "ring_teeth": 84,
+        "normal_module_mm": 0.804,
+        "helix_deg": 30,
+        "planet_tip_diameter_mm": 27.602619,
+        "planet_root_diameter_mm": 23.984619
+      },
+      "printed_prototype": {
+        "sun_teeth": 28,
+        "planet_teeth": 28,
+        "ring_teeth": 84,
+        "normal_module_mm": 0.804,
+        "helix_deg": 30,
+        "planet_tip_diameter_mm": 27.60262,
+        "planet_root_diameter_mm": 23.984618
+      },
+      "clearance": {
+        "nominal_axis_mm": 25.994619
+      },
+      "note": "External sun/planet root 23.984619, tip 27.602619. Section crossings confirm counts; module/helix come from native named source geometry."
+    },
+    {
+      "id": "planetary_preload",
+      "fit": "Planetary radial preload",
+      "category": "Planetary",
+      "tuned_by_print": true,
+      "fusion_v83": {},
+      "fusion_v12": {
+        "holder_axis_radius_mm": 26.1,
+        "gear_occurrence_axis_radius_mm": 25.9,
+        "nominal_axis_radius_mm": 25.994619
+      },
+      "printed_prototype": {
+        "holder_axis_radius_mm": 26.1,
+        "planet_tip_radius_mm": 13.801309,
+        "ring_root_radius_mm": 39.795928
+      },
+      "clearance": {
+        "holder_constrained_radial_clearance_mm": -0.105381,
+        "native_occurrence_radial_clearance_mm": 0.094619,
+        "holder_to_occurrence_axis_difference_mm": 0.2
+      },
+      "note": "Holder center distance is the printable constraint. Native loose gear occurrences are at 25.90: those instead leave +0.094619 radial clearance. Geometry alone cannot prove contact force."
+    },
+    {
+      "id": "planetary_axial_coverage",
+      "fit": "Planet-to-flex axial coverage",
+      "category": "Planetary",
+      "tuned_by_print": false,
+      "fusion_v83": {},
+      "fusion_v12": {
+        "planet_width_mm": 11,
+        "flex_height_mm": 16,
+        "holder_cavity_mm": 11
+      },
+      "printed_prototype": {
+        "planet_width_mm": 11,
+        "flex_height_mm": 16,
+        "holder_cavity_mm": 11,
+        "coverage_fraction": 0.6875
+      },
+      "clearance": {
+        "axial_face_gap_mm": 0,
+        "uncovered_height_mm": 5
+      },
+      "note": "Native placed planet Z65.5\u201376.5, or face+9.5\u201320.5. Physical gears can run with the confirmed print, but the CAD does not provide the requested full-height contact."
+    },
+    {
+      "id": "planet_bearing_seat",
+      "fit": "Planet bearing pockets",
+      "category": "Planetary",
+      "tuned_by_print": false,
+      "fusion_v83": {},
+      "fusion_v12": {
+        "pocket_diameter_mm": 10.2,
+        "pocket_depth_mm": 4.2,
+        "center_bore_mm": 3.4,
+        "center_web_width_mm": 2.6
+      },
+      "printed_prototype": {
+        "pocket_diameter_mm": 10.2,
+        "pocket_depth_mm": 4.2,
+        "center_bore_mm": 3.4,
+        "center_web_width_mm": 2.6
+      },
+      "clearance": {
+        "diametral_mm": 0.2,
+        "axial_mm": 0.2
+      },
+      "note": "Two bearings per planet. Width 11 = 4.2 + 2.6 + 4.2; inner-race spacer/backstop geometry is not identified in the print exports."
+    },
+    {
+      "id": "planet_holder_holes",
+      "fit": "Holder axle holes and center clearance",
+      "category": "Planetary",
+      "tuned_by_print": false,
+      "fusion_v83": {},
+      "fusion_v12": {
+        "top_hole_mm": 4.2,
+        "top_depth_mm": 3,
+        "bottom_hole_mm": null,
+        "center_hole_mm": 8
+      },
+      "printed_prototype": {
+        "top_hole_mm": 4.2,
+        "top_depth_mm": 3,
+        "bottom_hole_mm": 4.6,
+        "bottom_depth_mm": 1.4,
+        "center_hole_mm": 8
+      },
+      "clearance": {
+        "top_to_m3_mm": 1.2,
+        "bottom_to_m3_mm": 1.6
+      },
+      "note": "Native bottom holder has no planet-axis cylindrical holes; the STL adds them. Top holes are insert-sized, not bare M3 guidance. Exact clamp stack is unknown; do not infer a steel backstop from a purchase."
+    },
+    {
+      "id": "sun_shaft_fit",
+      "fit": "Sun D-shaft fit",
+      "category": "Planetary",
+      "tuned_by_print": false,
+      "fusion_v83": {},
+      "fusion_v12": {
+        "sun_bore_mm": 6.45,
+        "motor_shaft_mm": 6.35
+      },
+      "printed_prototype": {
+        "sun_bore_mm": 6.45,
+        "sun_flat_x_mm": 2.725,
+        "old_bore_mm": 6.35,
+        "old_flat_x_mm": 2.675
+      },
+      "clearance": {
+        "diametral_mm": 0.1,
+        "flat_normal_mm": 0.05
+      },
+      "note": "Herringbone_Internal.stl is an external 28-tooth shaft gear, despite its filename. SunGear provides the measured clearance revision."
+    },
+    {
+      "id": "output_bearing_identity",
+      "fit": "Output bearing identity",
+      "category": "Bearings",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "id_mm": 80,
+        "od_mm": 125,
+        "width_mm": 22
+      },
+      "fusion_v12": {
+        "id_mm": 80,
+        "od_mm": 125,
+        "width_mm": 22
+      },
+      "printed_prototype": {
+        "id_mm": 80,
+        "od_mm": 125,
+        "width_mm": 22
+      },
+      "clearance": {},
+      "note": "Catalog identity is now confirmed, not an open question. Both print geometries contain the large bearing interfaces."
+    },
+    {
+      "id": "output_outer_fit",
+      "fit": "Output outer-race fit",
+      "category": "Bearings",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "base_bore_mm": 125.6,
+        "rib_count": 25,
+        "rib_diameter_mm": 0.8,
+        "rib_axis_radius_mm": 62.790533,
+        "crest_bore_mm": 124.781066
+      },
+      "fusion_v12": {
+        "base_bore_mm": 125.6,
+        "rib_count": 25,
+        "rib_diameter_mm": 0.8,
+        "rib_axis_radius_mm": 62.790533,
+        "crest_bore_mm": 124.781066
+      },
+      "printed_prototype": {
+        "split_base_bore_mm": 125.6,
+        "split_sampled_crest_bore_mm": 124.78387,
+        "monolithic_base_bore_mm": 125.2,
+        "monolithic_sampled_crest_bore_mm": 124.413082
+      },
+      "clearance": {
+        "base_diametral_mm": 0.6,
+        "crest_diametral_mm": -0.218934
+      },
+      "note": "A smooth \u00d8125.6 bore would remove the interference ribs and would not reproduce this fit. STL facet error slightly overstates the minimum crest bore."
+    },
+    {
+      "id": "output_inner_fit",
+      "fit": "Output inner-race fit",
+      "category": "Bearings",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "base_journal_mm": 79.6,
+        "crest_journal_mm": 80.4,
+        "rib_count": 25,
+        "rib_diameter_mm": 0.8,
+        "journal_length_mm": 22
+      },
+      "fusion_v12": {
+        "base_journal_mm": 79.6,
+        "crest_journal_mm": 80.4,
+        "rib_count": 25,
+        "rib_diameter_mm": 0.8,
+        "journal_length_mm": 22
+      },
+      "printed_prototype": {
+        "base_journal_mm": 79.6,
+        "crest_journal_mm": 80.4,
+        "journal_length_mm": 22
+      },
+      "clearance": {
+        "base_diametral_mm": 0.4,
+        "crest_diametral_mm": -0.4
+      },
+      "note": "Journal spans Backplate Z39\u201356 and Circular Z56\u201361; total22 matches bearing width. Ribs, not the base cylinder, create retention."
+    },
+    {
+      "id": "output_axial_seat",
+      "fit": "Output bearing axial capture",
+      "category": "Bearings",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "pocket_depth_mm": 23,
+        "retainer_intrusion_mm": 1.1,
+        "captured_width_mm": 21.9
+      },
+      "fusion_v12": {
+        "pocket_depth_mm": 23,
+        "retainer_intrusion_mm": 1.1,
+        "captured_width_mm": 21.9
+      },
+      "printed_prototype": {
+        "Endcap_captured_width_mm": 21.9,
+        "Endcap_2_captured_width_mm": 22.1
+      },
+      "clearance": {
+        "Endcap_axial_mm": -0.1,
+        "Endcap_2_axial_mm": 0.1
+      },
+      "note": "Endcap and Endcap_2 are alternatives, not two installed parts. Native bearing occupies Z39\u201361; native Endcap lip reaches39.1. Actual cap choice/compression is not recorded."
+    },
+    {
+      "id": "central_bearing_identity",
+      "fit": "Central bearing identity",
+      "category": "Bearings",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "id_mm": 30,
+        "od_mm": 37,
+        "width_mm": 4
+      },
+      "fusion_v12": {
+        "id_mm": 30,
+        "od_mm": 37,
+        "width_mm": 4
+      },
+      "printed_prototype": {
+        "matching_id_mm": 30,
+        "matching_od_mm": 37
+      },
+      "clearance": {},
+      "note": "The purchased 6805 shares OD only. It is not a drop-in replacement for the native 30.2 mm journal."
+    },
+    {
+      "id": "central_outer_fit",
+      "fit": "Central bearing outer-race fit",
+      "category": "Bearings",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "bore_mm": 37.1,
+        "straight_length_mm": 11
+      },
+      "fusion_v12": {
+        "bore_mm": 37.1,
+        "straight_length_mm": 11
+      },
+      "printed_prototype": {
+        "split_bore_mm": 37.1,
+        "monolithic_bore_mm": 37.2
+      },
+      "clearance": {
+        "split_diametral_mm": 0.1,
+        "monolithic_diametral_mm": 0.2,
+        "straight_seat_minus_bearing_width_mm": 7
+      },
+      "note": "Seat is open/filleted, not a 4 mm blind pocket. Eleven mm straight length minus4 is7 mm unused length, not a measured retained endplay."
+    },
+    {
+      "id": "central_inner_fit",
+      "fit": "Central bearing journal fit",
+      "category": "Bearings",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "journal_mm": 30.2,
+        "straight_length_mm": 12.8
+      },
+      "fusion_v12": {
+        "journal_mm": 30.2,
+        "straight_length_mm": 12.8
+      },
+      "printed_prototype": {
+        "V3_journal_mm": 30.2,
+        "V2_journal_mm": 29.8
+      },
+      "clearance": {
+        "V3_diametral_mm": -0.2,
+        "V2_diametral_mm": 0.2
+      },
+      "note": "The source explicitly changed from clearance to interference. The physical central bearing fit was not among Nate's hand-tuned dimensions."
+    },
+    {
+      "id": "other_owned_bearings",
+      "fit": "Other purchased bearing sizes",
+      "category": "Bearings",
+      "tuned_by_print": false,
+      "fusion_v83": {},
+      "fusion_v12": {},
+      "printed_prototype": {},
+      "clearance": {},
+      "note": "Purchases do not establish installation. Do not assign 6702 or 6812 to a seat because they are owned; the measured native interfaces are listed above."
+    },
+    {
+      "id": "insert_fixed",
+      "fit": "Circular spline pilots",
+      "category": "Fasteners",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "diameter_mm": 4.2,
+        "straight_depth_mm": 4.5,
+        "count": 4
+      },
+      "fusion_v12": {
+        "diameter_mm": 4.2,
+        "straight_depth_mm": 4.5,
+        "count": 4
+      },
+      "printed_prototype": {
+        "diameter_mm": 4.2,
+        "straight_depth_mm": 4.5,
+        "count": 4
+      },
+      "clearance": {
+        "pre_installation_diametral_mm": -0.8
+      },
+      "note": "Heat-set installation melts/displaces plastic; this is not an elastic press-fit clearance. Pilot depth does not prove full insert engagement. Carrier entries have chamfers."
+    },
+    {
+      "id": "insert_backplate",
+      "fit": "Backplate underside pilots",
+      "category": "Fasteners",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "diameter_mm": 4.2,
+        "straight_depth_mm": 7,
+        "count": 8
+      },
+      "fusion_v12": {
+        "diameter_mm": 4.2,
+        "straight_depth_mm": 7,
+        "count": 8
+      },
+      "printed_prototype": {
+        "diameter_mm": 4.2,
+        "straight_depth_mm": 7,
+        "count": 8
+      },
+      "clearance": {
+        "pre_installation_diametral_mm": -0.8
+      },
+      "note": "Heat-set installation melts/displaces plastic; this is not an elastic press-fit clearance. Pilot depth does not prove full insert engagement. Carrier entries have chamfers."
+    },
+    {
+      "id": "insert_drum",
+      "fit": "Drum top pilots",
+      "category": "Fasteners",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "diameter_mm": 4.2,
+        "straight_depth_mm": 7,
+        "count": 8
+      },
+      "fusion_v12": {
+        "diameter_mm": 4.2,
+        "straight_depth_mm": 7,
+        "count": 8
+      },
+      "printed_prototype": {
+        "diameter_mm": 4.2,
+        "straight_depth_mm": 7,
+        "count": 8
+      },
+      "clearance": {
+        "pre_installation_diametral_mm": -0.8
+      },
+      "note": "Heat-set installation melts/displaces plastic; this is not an elastic press-fit clearance. Pilot depth does not prove full insert engagement. Carrier entries have chamfers."
+    },
+    {
+      "id": "insert_carrier",
+      "fit": "Carrier hub pilots",
+      "category": "Fasteners",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "diameter_mm": 4.2,
+        "straight_depth_mm": 7.75,
+        "count": 4
+      },
+      "fusion_v12": {
+        "diameter_mm": 4.2,
+        "straight_depth_mm": 7.75,
+        "count": 4
+      },
+      "printed_prototype": {
+        "diameter_mm": 4.2,
+        "straight_depth_mm": 7.75,
+        "count": 4
+      },
+      "clearance": {
+        "pre_installation_diametral_mm": -0.8
+      },
+      "note": "Heat-set installation melts/displaces plastic; this is not an elastic press-fit clearance. Pilot depth does not prove full insert engagement. Carrier entries have chamfers."
+    },
+    {
+      "id": "insert_axle",
+      "fit": "Carrier lower axle pilots",
+      "category": "Fasteners",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "diameter_mm": 4.2,
+        "straight_depth_mm": 2.75,
+        "count": 2
+      },
+      "fusion_v12": {
+        "diameter_mm": 4.2,
+        "straight_depth_mm": 2.75,
+        "count": 2
+      },
+      "printed_prototype": {
+        "diameter_mm": 4.2,
+        "straight_depth_mm": 2.75,
+        "count": 2
+      },
+      "clearance": {
+        "pre_installation_diametral_mm": -0.8
+      },
+      "note": "Heat-set installation melts/displaces plastic; this is not an elastic press-fit clearance. Pilot depth does not prove full insert engagement. Carrier entries have chamfers."
+    },
+    {
+      "id": "m3_holes",
+      "fit": "M3 clearance holes",
+      "category": "Fasteners",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "diameter_mm": 3.2,
+        "backplate_length_mm": 8,
+        "top_length_mm": 4
+      },
+      "fusion_v12": {
+        "diameter_mm": 3.2,
+        "backplate_length_mm": 8,
+        "top_length_mm": 4
+      },
+      "printed_prototype": {
+        "diameter_mm": 3.2,
+        "backplate_length_mm": 8,
+        "top_length_mm": 4
+      },
+      "clearance": {
+        "diametral_mm": 0.2
+      },
+      "note": "Four Backplate holes at radius34.2509; eight Top holes at radius63.75; four carrier coupling holes at radius8. Axle holes are recorded separately."
+    },
+    {
+      "id": "m3_head_recess",
+      "fit": "M3 head recesses",
+      "category": "Fasteners",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "backplate_diameter_mm": 5.8,
+        "backplate_depth_mm": 17,
+        "top_diameter_mm": 5.6,
+        "top_depth_mm": 6.05,
+        "carrier_diameter_mm": 7,
+        "carrier_depth_mm": 9,
+        "cap_diameter_mm": 6.8,
+        "cap_depth_mm": 4
+      },
+      "fusion_v12": {
+        "backplate_diameter_mm": 5.8,
+        "backplate_depth_mm": 17,
+        "top_diameter_mm": 5.6,
+        "top_depth_mm": 6.05,
+        "carrier_diameter_mm": 7,
+        "carrier_depth_mm": 9,
+        "cap_diameter_mm": 6.8,
+        "cap_depth_mm": 4
+      },
+      "printed_prototype": {
+        "backplate_diameter_mm": 5.8,
+        "carrier_diameter_mm": 7,
+        "cap_diameter_mm": 6.8,
+        "top_diameter_mm": null
+      },
+      "clearance": {
+        "backplate_head_diametral_mm": 0.8,
+        "native_top_head_diametral_mm": 0.6,
+        "carrier_head_diametral_mm": 2,
+        "cap_head_diametral_mm": 1.8
+      },
+      "note": "Top recess depth/diameter comes from BRep; the STL opening merges with the outside contour, so an isolated closed-circle fit is unavailable. Cap entry chamfers add depth beyond the straight4."
+    },
+    {
+      "id": "endcap_fasteners",
+      "fit": "Endcap fastener holes",
+      "category": "Fasteners",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "endcap_bore_mm": 2.2,
+        "endcap_depth_mm": 5,
+        "drum_pilot_mm": 2.9,
+        "drum_depth_mm": 8,
+        "count": 8
+      },
+      "fusion_v12": {
+        "endcap_bore_mm": 2.2,
+        "endcap_depth_mm": 5,
+        "drum_pilot_mm": 2.9,
+        "drum_depth_mm": 8,
+        "count": 8
+      },
+      "printed_prototype": {
+        "endcap_bore_mm": 2.2,
+        "Endcap_2_depth_mm": 2.8,
+        "drum_pilot_mm": 2.9
+      },
+      "clearance": {
+        "endcap_to_m3_diametral_mm": -0.8,
+        "drum_to_m3_diametral_mm": -0.1
+      },
+      "note": "These are not generic \u00d83.2 M3 holes. No unambiguous installed screw specification is recorded; preserve geometry and use a coupon/assembly note rather than invent a fastener fit."
+    },
+    {
+      "id": "motor_pilot",
+      "fit": "Motor pilot register",
+      "category": "Motor",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "pilot_bore_mm": 38.2,
+        "bore_length_mm": 6.85,
+        "parameter_mm": 38.3,
+        "motor_boss_mm": 38.1,
+        "motor_boss_height_mm": 1.6
+      },
+      "fusion_v12": {
+        "pilot_bore_mm": 38.2,
+        "bore_length_mm": 6.85,
+        "parameter_mm": 38.3,
+        "motor_boss_mm": 38.1,
+        "motor_boss_height_mm": 1.6
+      },
+      "printed_prototype": {
+        "pilot_bore_mm": 38.2,
+        "bore_length_mm": 6.85
+      },
+      "clearance": {
+        "diametral_mm": 0.1
+      },
+      "note": "Native expression Shaft_Bump_Dia\u22120.1 yields38.2, so copying the38.3 user parameter would change the fit. Boss is1.6 high; bore continues through the plate."
+    },
+    {
+      "id": "motor_bolts",
+      "fit": "Motor mounting holes",
+      "category": "Motor",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "square_pitch_mm": 47.14,
+        "spline_hole_mm": 5.2,
+        "motor_hole_mm": 5.1
+      },
+      "fusion_v12": {
+        "square_pitch_mm": 47.14,
+        "spline_hole_mm": 5.2,
+        "motor_hole_mm": 5.1
+      },
+      "printed_prototype": {
+        "square_pitch_mm": 47.14,
+        "spline_hole_mm": 5.2
+      },
+      "clearance": {
+        "spline_to_m5_mm": 0.2,
+        "motor_to_m5_mm": 0.1
+      },
+      "note": "Motor model has clearance holes, not tapped M5 threads. Installed bolt/nut specification remains unrecorded."
+    },
+    {
+      "id": "motor_head_recess",
+      "fit": "Motor screw head recesses",
+      "category": "Motor",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "diameter_mm": 8.6,
+        "depth_mm": 5.2,
+        "floor_mm": 1.65
+      },
+      "fusion_v12": {
+        "diameter_mm": 8.6,
+        "depth_mm": 5.2,
+        "floor_mm": 1.65
+      },
+      "printed_prototype": {
+        "diameter_mm": 8.6,
+        "depth_mm": 5.2,
+        "floor_mm": 1.65
+      },
+      "clearance": {},
+      "note": "The modeled holes fix counterbore geometry, not which screw was used."
+    },
+    {
+      "id": "motor_wrap",
+      "fit": "Motor corners inside wrapped journal",
+      "category": "Motor",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "journal_base_radius_mm": 39.8,
+        "motor_corner_radius_mm": 38.648232
+      },
+      "fusion_v12": {
+        "journal_base_radius_mm": 39.8,
+        "motor_corner_radius_mm": 38.648232
+      },
+      "printed_prototype": {
+        "journal_base_radius_mm": 39.8
+      },
+      "clearance": {
+        "journal_base_to_motor_corner_mm": 1.151768,
+        "bearing_bore_to_motor_corner_mm": 1.351768
+      },
+      "note": "Bare80 mm bearing bore has1.351768 radial corner clearance. Journal base consumes0.2 of this; remaining1.151768 includes the printed wall and motor-pocket clearance, not all free air. Connector is at the rear, outside the bearing band."
+    },
+    {
+      "id": "coupling",
+      "fit": "Flange coupling to shaft",
+      "category": "Motor",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "bore_mm": 6.35,
+        "flange_diameter_mm": 22,
+        "length_mm": 12,
+        "carrier_bolt_radius_mm": 8
+      },
+      "fusion_v12": {
+        "bore_mm": 6.35,
+        "flange_diameter_mm": 22,
+        "length_mm": 12,
+        "carrier_bolt_radius_mm": 8
+      },
+      "printed_prototype": {
+        "carrier_bolt_radius_mm": 8
+      },
+      "clearance": {
+        "nominal_diametral_mm": 0
+      },
+      "note": "Exact physical coupling bore tolerance and clamp clearance are unknown. Native flange coupling envelope22\u00d712 is catalog hardware, not a custom machined part."
+    },
+    {
+      "id": "flex_axial",
+      "fit": "Flex axial clearance",
+      "category": "Axial gaps",
+      "tuned_by_print": true,
+      "fusion_v83": {
+        "cavity_mm": 16.55,
+        "flex_height_mm": 16,
+        "lower_gap_mm": 0.4,
+        "upper_gap_mm": 0.15
+      },
+      "fusion_v12": {
+        "cavity_mm": 16.55,
+        "flex_height_mm": 16,
+        "lower_gap_mm": 0.4,
+        "upper_gap_mm": 0.15
+      },
+      "printed_prototype": {
+        "cavity_mm": 16.55,
+        "plain_height_mm": 16,
+        "herringbone_height_mm": 16,
+        "intermediate_height_mm": 16.6
+      },
+      "clearance": {
+        "plain_total_axial_mm": 0.55,
+        "planetary_total_axial_mm": 0.55,
+        "intermediate_total_axial_mm": -0.05
+      },
+      "note": "Source poses: floor62.85; flex63.25\u201379.25; roof79.40. Nate wants no float in the release; the source geometry does not satisfy that standing requirement."
+    },
+    {
+      "id": "fixed_dynamic_axial",
+      "fit": "Fixed spline to drum shoulder",
+      "category": "Axial gaps",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "gap_mm": 0.7
+      },
+      "fusion_v12": {
+        "gap_mm": 0.9
+      },
+      "printed_prototype": {
+        "gap_mm": 0.9
+      },
+      "clearance": {
+        "axial_mm": 0.9
+      },
+      "note": "Both are at the same local concentric radius after occurrence transforms; do not subtract uncorrected component-local elevations."
+    },
+    {
+      "id": "fixed_dynamic_radial",
+      "fit": "Fixed spline inside rotating drum",
+      "category": "Axial gaps",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "fixed_od_mm": 95.4,
+        "drum_bore_mm": 100
+      },
+      "fusion_v12": {
+        "fixed_od_mm": 95.4,
+        "drum_bore_mm": 100
+      },
+      "printed_prototype": {
+        "fixed_od_mm": 95.4,
+        "drum_bore_mm": 100
+      },
+      "clearance": {
+        "radial_mm": 2.3
+      },
+      "note": "Applies to overlap Z61\u201370.1. The95.4 mm drum neck occurs above the fixed spline, avoiding a zero-clearance cylindrical overlap."
+    },
+    {
+      "id": "endcap_backplate_gap",
+      "fit": "Endcap around Backplate shoulder",
+      "category": "Axial gaps",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "endcap_id_mm": 102,
+        "backplate_od_mm": 100,
+        "lower_relief_id_mm": 117,
+        "backplate_foot_od_mm": 115
+      },
+      "fusion_v12": {
+        "endcap_id_mm": 102,
+        "backplate_od_mm": 100,
+        "lower_relief_id_mm": 117,
+        "backplate_foot_od_mm": 115
+      },
+      "printed_prototype": {
+        "endcap_id_mm": 102,
+        "backplate_od_mm": 100
+      },
+      "clearance": {
+        "radial_mm": 1
+      },
+      "note": "Lower relief is present in Endcap, absent from thinner Endcap_2. Captured bearing axial fit is separate."
+    },
+    {
+      "id": "carrier_floor_gap",
+      "fit": "Carrier over fixed floor",
+      "category": "Axial gaps",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "carrier_bottom_z_mm": 63.25,
+        "floor_z_mm": 62.85
+      },
+      "fusion_v12": {
+        "carrier_bottom_z_mm": 63.25,
+        "floor_z_mm": 62.85
+      },
+      "printed_prototype": {
+        "carrier_bottom_z_mm": 63.25,
+        "floor_z_mm": 62.85
+      },
+      "clearance": {
+        "axial_mm": 0.4
+      },
+      "note": "Excludes protruding fasteners and catalog-coupling geometry. Not a claim that the full assembly is collision-free."
+    },
+    {
+      "id": "central_bearing_axial",
+      "fit": "Central bearing axial placement",
+      "category": "Axial gaps",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "native_bearing_z_mm": [
+          81.4,
+          85.4
+        ],
+        "journal_top_z_mm": 88.75
+      },
+      "fusion_v12": {
+        "native_bearing_z_mm": [
+          81.4,
+          85.4
+        ],
+        "journal_top_z_mm": 88.75
+      },
+      "printed_prototype": {
+        "physical_bearing_z_mm": null
+      },
+      "clearance": {
+        "retained_endplay_mm": null
+      },
+      "note": "Occurrence metadata puts the bearing lower than the intuitive Cap-underface seat. Do not move it to85.25\u201389.25 and call that a measured source fit. Coupled chamfers/cap contacts need an assembly coupon; installed pose is not recorded."
+    },
+    {
+      "id": "output_attachment",
+      "fit": "Output flange attachment holes",
+      "category": "Fasteners",
+      "tuned_by_print": false,
+      "fusion_v83": {
+        "count": 8,
+        "pcd_mm": 80,
+        "hole_mm": 5.2,
+        "recess_mm": 8.6,
+        "recess_depth_mm": 5.5
+      },
+      "fusion_v12": {
+        "count": 8,
+        "pcd_mm": 80,
+        "hole_mm": 5.2,
+        "recess_mm": 8.6,
+        "recess_depth_mm": 5.5
+      },
+      "printed_prototype": {
+        "count": 8,
+        "pcd_mm": 80,
+        "hole_mm": 6.4
+      },
+      "clearance": {
+        "print_to_m6_mm": 0.4
+      },
+      "note": "This interface changed after the archived V3 Top STL. Do not substitute native\u00d85.2 and claim identical printed hardware."
+    }
+  ],
+  "confirmed_by_designer": "Both plain and planetary prototypes operated. Flex wall/height and wave preload were tuned by printing. The output bearing was 80\u00d7125\u00d722.",
+  "unproven": [
+    "Physical shrinkage and moisture conditioning",
+    "Contact force and loaded backlash",
+    "Installed central-bearing seating and axle clamp stack",
+    "Physical print order"
+  ],
+  "involute_measurement": {
+    "normal_pressure_angle_deg": 20,
+    "transverse_pressure_angle_at_30_deg_helix": 22.79604,
+    "method": "Least-squares involute fit to native sun-gear flank at its midplane; angular RMS residual 0.000000293 rad."
+  }
+}

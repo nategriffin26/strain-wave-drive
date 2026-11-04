@@ -1,0 +1,11 @@
+part,qty,material,layer_height_mm,walls,infill_percent,supports,orientation,estimated_mass_g,note
+circular_spline,1,CF-PLA,0.16,6,100,bed-only beneath motor-plate overhang,Motor mounting face down; bearing shoulder below it needs accessible bed support.,67.67,Solid-equivalent mass using assumed density; dry PA6 and calibrate coupons before assembly.
+journal_sleeve,1,CF-PLA,0.16,6,100,none,Flat face on the bed; axis vertical.,26.02,Solid-equivalent mass using assumed density; dry PA6 and calibrate coupons before assembly.
+dynamic_spline,1,CF-PLA,0.16,6,100,none,"Closed roof on the bed, open bearing skirt upward.",217.45,Solid-equivalent mass using assumed density; dry PA6 and calibrate coupons before assembly.
+output_bearing_cap,1,CF-PLA,0.16,6,100,none,Flat face on the bed; axis vertical.,6.66,Solid-equivalent mass using assumed density; dry PA6 and calibrate coupons before assembly.
+flexspline,1,PA6,0.16,6,100,none,"Axis vertical; dry PA6. The print mesh is the neutral circular ring, never its operating deformation.",14.27,Solid-equivalent mass using assumed density; dry PA6 and calibrate coupons before assembly.
+sun_gear,1,CF-PLA,0.16,6,100,accessible bed-only support below gear and clamp,Shaft axis vertical; lower hub end on bed.,14.3,Solid-equivalent mass using assumed density; dry PA6 and calibrate coupons before assembly.
+carrier_lower,1,CF-PLA,0.16,6,100,accessible bed-only support beneath bridge,Insert bosses on bed; remove bridge supports before installing inserts.,1.73,Solid-equivalent mass using assumed density; dry PA6 and calibrate coupons before assembly.
+carrier_upper,1,CF-PLA,0.16,6,100,none,Flat face on the bed; axis vertical.,1.96,Solid-equivalent mass using assumed density; dry PA6 and calibrate coupons before assembly.
+planet_gear_1,1,CF-PLA,0.16,6,100,none,Flat face on the bed; axis vertical.,9.45,Solid-equivalent mass using assumed density; dry PA6 and calibrate coupons before assembly.
+planet_gear_2,1,CF-PLA,0.16,6,100,none,Flat face on the bed; axis vertical.,9.45,Solid-equivalent mass using assumed density; dry PA6 and calibrate coupons before assembly.

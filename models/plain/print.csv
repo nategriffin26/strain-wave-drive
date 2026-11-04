@@ -1,0 +1,8 @@
+part,qty,material,layer_height_mm,walls,infill_percent,supports,orientation,estimated_mass_g,note
+circular_spline,1,CF-PLA,0.16,6,100,bed-only beneath motor-plate overhang,Motor mounting face down; bearing shoulder below it needs accessible bed support.,67.67,Solid-equivalent mass using assumed density; dry PA6 and calibrate coupons before assembly.
+journal_sleeve,1,CF-PLA,0.16,6,100,none,Flat face on the bed; axis vertical.,26.02,Solid-equivalent mass using assumed density; dry PA6 and calibrate coupons before assembly.
+dynamic_spline,1,CF-PLA,0.16,6,100,none,"Closed roof on the bed, open bearing skirt upward.",217.79,Solid-equivalent mass using assumed density; dry PA6 and calibrate coupons before assembly.
+output_bearing_cap,1,CF-PLA,0.16,6,100,none,Flat face on the bed; axis vertical.,6.66,Solid-equivalent mass using assumed density; dry PA6 and calibrate coupons before assembly.
+flexspline,1,PA6,0.16,6,100,none,"Axis vertical; dry PA6. The print mesh is the neutral circular ring, never its operating deformation.",9.8,Solid-equivalent mass using assumed density; dry PA6 and calibrate coupons before assembly.
+roller_hub,1,CF-PLA,0.16,6,100,accessible bed-only support beneath arms,Shaft axis vertical; lower clamp end on bed.,9.43,Solid-equivalent mass using assumed density; dry PA6 and calibrate coupons before assembly.
+roller_cap,1,CF-PLA,0.16,6,100,none,Flat face on the bed; axis vertical.,1.58,Solid-equivalent mass using assumed density; dry PA6 and calibrate coupons before assembly.

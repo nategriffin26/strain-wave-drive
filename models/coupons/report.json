@@ -1,0 +1,827 @@
+{
+  "name": "coupons",
+  "units": "mm",
+  "passed": true,
+  "parameters": {},
+  "dimensions": {},
+  "counts": {
+    "printed_parts": 23,
+    "catalog_items": 0,
+    "catalog_line_items": 0,
+    "custom_metal_parts": 0,
+    "scene_nodes": 23
+  },
+  "catalog": [],
+  "envelope": {
+    "bounds_mm": [
+      [
+        -120.0,
+        -49.0,
+        0.0
+      ],
+      [
+        640.0,
+        708.0,
+        20.7
+      ]
+    ],
+    "size_mm": [
+      760.0,
+      757.0,
+      20.7
+    ],
+    "diameter_mm": null,
+    "height_above_motor_face_mm": null,
+    "total_height_with_motor_mm": null,
+    "limits": "Motor connector, flexible leads and external payload are excluded."
+  },
+  "ratio": null,
+  "geometry_seconds": 3.1932753340006457,
+  "build_seconds": 22.87622308400023,
+  "glb": null,
+  "declared_contacts": [],
+  "assembly_order": [],
+  "checks": [
+    {
+      "name": "Printed-part geometry",
+      "passed": true,
+      "parts": [
+        {
+          "name": "tooth_flex_plain",
+          "passed": true,
+          "valid_brep": true,
+          "solid_count": 1,
+          "watertight": true,
+          "bounds_mm": [
+            [
+              85.33500000000001,
+              85.33500000000001,
+              0.0
+            ],
+            [
+              170.665,
+              170.665,
+              3.0
+            ]
+          ],
+          "size_mm": [
+            85.32999999999998,
+            85.32999999999998,
+            3.0
+          ],
+          "bed_z_mm": 0.0
+        },
+        {
+          "name": "tooth_ring_plain_minus_01",
+          "passed": true,
+          "valid_brep": true,
+          "solid_count": 1,
+          "watertight": true,
+          "bounds_mm": [
+            [
+              79.0,
+              78.88001387230314,
+              0.0
+            ],
+            [
+              177.0,
+              177.125,
+              3.5
+            ]
+          ],
+          "size_mm": [
+            98.0,
+            98.24498612769686,
+            3.5
+          ],
+          "bed_z_mm": 0.0
+        },
+        {
+          "name": "tooth_ring_plain_00",
+          "passed": true,
+          "valid_brep": true,
+          "solid_count": 1,
+          "watertight": true,
+          "bounds_mm": [
+            [
+              79.0,
+              78.88001387230314,
+              0.0
+            ],
+            [
+              177.0,
+              177.125,
+              3.5
+            ]
+          ],
+          "size_mm": [
+            98.0,
+            98.24498612769686,
+            3.5
+          ],
+          "bed_z_mm": 0.0
+        },
+        {
+          "name": "tooth_ring_plain_plus_01",
+          "passed": true,
+          "valid_brep": true,
+          "solid_count": 1,
+          "watertight": true,
+          "bounds_mm": [
+            [
+              79.0,
+              78.88001387230314,
+              0.0
+            ],
+            [
+              177.0,
+              177.125,
+              3.5
+            ]
+          ],
+          "size_mm": [
+            98.0,
+            98.24498612769686,
+            3.5
+          ],
+          "bed_z_mm": 0.0
+        },
+        {
+          "name": "tooth_flex_planetary",
+          "passed": true,
+          "valid_brep": true,
+          "solid_count": 1,
+          "watertight": true,
+          "bounds_mm": [
+            [
+              85.035,
+              85.035,
+              0.0
+            ],
+            [
+              170.965,
+              170.965,
+              3.0
+            ]
+          ],
+          "size_mm": [
+            85.93,
+            85.93,
+            3.0
+          ],
+          "bed_z_mm": 0.0
+        },
+        {
+          "name": "tooth_ring_planetary_minus_01",
+          "passed": true,
+          "valid_brep": true,
+          "solid_count": 1,
+          "watertight": true,
+          "bounds_mm": [
+            [
+              79.0,
+              78.88001387230314,
+              0.0
+            ],
+            [
+              177.0,
+              177.125,
+              3.5
+            ]
+          ],
+          "size_mm": [
+            98.0,
+            98.24498612769686,
+            3.5
+          ],
+          "bed_z_mm": 0.0
+        },
+        {
+          "name": "tooth_ring_planetary_00",
+          "passed": true,
+          "valid_brep": true,
+          "solid_count": 1,
+          "watertight": true,
+          "bounds_mm": [
+            [
+              79.0,
+              78.88001387230314,
+              0.0
+            ],
+            [
+              177.0,
+              177.125,
+              3.5
+            ]
+          ],
+          "size_mm": [
+            98.0,
+            98.24498612769686,
+            3.5
+          ],
+          "bed_z_mm": 0.0
+        },
+        {
+          "name": "tooth_ring_planetary_plus_01",
+          "passed": true,
+          "valid_brep": true,
+          "solid_count": 1,
+          "watertight": true,
+          "bounds_mm": [
+            [
+              79.0,
+              78.88001387230314,
+              0.0
+            ],
+            [
+              177.0,
+              177.125,
+              3.5
+            ]
+          ],
+          "size_mm": [
+            98.0,
+            98.24498612769686,
+            3.5
+          ],
+          "bed_z_mm": 0.0
+        },
+        {
+          "name": "fits_plate_minus_01",
+          "passed": true,
+          "valid_brep": true,
+          "solid_count": 1,
+          "watertight": true,
+          "bounds_mm": [
+            [
+              8.0,
+              52.0,
+              0.0
+            ],
+            [
+              248.0,
+              204.0,
+              6.5
+            ]
+          ],
+          "size_mm": [
+            240.0,
+            152.0,
+            6.5
+          ],
+          "bed_z_mm": 0.0
+        },
+        {
+          "name": "output_seat_minus_01",
+          "passed": true,
+          "valid_brep": true,
+          "solid_count": 1,
+          "watertight": true,
+          "bounds_mm": [
+            [
+              73.75089647602113,
+              71.89173868423276,
+              0.0
+            ],
+            [
+              182.24910352397887,
+              184.125,
+              6.5
+            ]
+          ],
+          "size_mm": [
+            108.49820704795775,
+            112.23326131576724,
+            6.5
+          ],
+          "bed_z_mm": 0.0
+        },
+        {
+          "name": "fits_plate_00",
+          "passed": true,
+          "valid_brep": true,
+          "solid_count": 1,
+          "watertight": true,
+          "bounds_mm": [
+            [
+              8.0,
+              52.0,
+              0.0
+            ],
+            [
+              248.0,
+              204.0,
+              6.5
+            ]
+          ],
+          "size_mm": [
+            240.0,
+            152.0,
+            6.5
+          ],
+          "bed_z_mm": 0.0
+        },
+        {
+          "name": "output_seat_00",
+          "passed": true,
+          "valid_brep": true,
+          "solid_count": 1,
+          "watertight": true,
+          "bounds_mm": [
+            [
+              73.70086898971695,
+              71.8667560689833,
+              0.0
+            ],
+            [
+              182.29913101028308,
+              184.14999999999998,
+              6.5
+            ]
+          ],
+          "size_mm": [
+            108.59826202056612,
+            112.28324393101667,
+            6.5
+          ],
+          "bed_z_mm": 0.0
+        },
+        {
+          "name": "fits_plate_plus_01",
+          "passed": true,
+          "valid_brep": true,
+          "solid_count": 1,
+          "watertight": true,
+          "bounds_mm": [
+            [
+              8.0,
+              52.0,
+              0.0
+            ],
+            [
+              248.0,
+              204.0,
+              6.5
+            ]
+          ],
+          "size_mm": [
+            240.0,
+            152.0,
+            6.5
+          ],
+          "bed_z_mm": 0.0
+        },
+        {
+          "name": "output_seat_plus_01",
+          "passed": true,
+          "valid_brep": true,
+          "solid_count": 1,
+          "watertight": true,
+          "bounds_mm": [
+            [
+              73.65084195732804,
+              71.84177345378478,
+              0.0
+            ],
+            [
+              182.34915804267197,
+              184.17499999999995,
+              6.5
+            ]
+          ],
+          "size_mm": [
+            108.69831608534393,
+            112.33322654621517,
+            6.5
+          ],
+          "bed_z_mm": 0.0
+        },
+        {
+          "name": "motor_corner_0",
+          "passed": true,
+          "valid_brep": true,
+          "solid_count": 1,
+          "watertight": true,
+          "bounds_mm": [
+            [
+              87.95701485295736,
+              87.87857313164855,
+              0.0
+            ],
+            [
+              168.04308255615808,
+              168.12142686835145,
+              8.5
+            ]
+          ],
+          "size_mm": [
+            80.08606770320073,
+            80.2428537367029,
+            8.5
+          ],
+          "bed_z_mm": 0.0
+        },
+        {
+          "name": "motor_corner_1",
+          "passed": true,
+          "valid_brep": true,
+          "solid_count": 1,
+          "watertight": true,
+          "bounds_mm": [
+            [
+              87.95701485295736,
+              87.87857313164855,
+              0.0
+            ],
+            [
+              168.0430825561581,
+              168.12142686835145,
+              8.5
+            ]
+          ],
+          "size_mm": [
+            80.08606770320075,
+            80.2428537367029,
+            8.5
+          ],
+          "bed_z_mm": 0.0
+        },
+        {
+          "name": "motor_corner_2",
+          "passed": true,
+          "valid_brep": true,
+          "solid_count": 1,
+          "watertight": true,
+          "bounds_mm": [
+            [
+              87.95701485295733,
+              87.87857313164855,
+              0.0
+            ],
+            [
+              168.04308255615808,
+              168.12142686835145,
+              8.5
+            ]
+          ],
+          "size_mm": [
+            80.08606770320075,
+            80.2428537367029,
+            8.5
+          ],
+          "bed_z_mm": 0.0
+        },
+        {
+          "name": "axial_cavity_0",
+          "passed": true,
+          "valid_brep": true,
+          "solid_count": 1,
+          "watertight": true,
+          "bounds_mm": [
+            [
+              110.0,
+              115.0,
+              0.0
+            ],
+            [
+              146.0,
+              141.0,
+              20.5
+            ]
+          ],
+          "size_mm": [
+            36.0,
+            26.0,
+            20.5
+          ],
+          "bed_z_mm": 0.0
+        },
+        {
+          "name": "axial_cavity_1",
+          "passed": true,
+          "valid_brep": true,
+          "solid_count": 1,
+          "watertight": true,
+          "bounds_mm": [
+            [
+              110.0,
+              115.0,
+              0.0
+            ],
+            [
+              146.0,
+              141.0,
+              20.6
+            ]
+          ],
+          "size_mm": [
+            36.0,
+            26.0,
+            20.6
+          ],
+          "bed_z_mm": 0.0
+        },
+        {
+          "name": "axial_cavity_2",
+          "passed": true,
+          "valid_brep": true,
+          "solid_count": 1,
+          "watertight": true,
+          "bounds_mm": [
+            [
+              110.0,
+              115.0,
+              0.0
+            ],
+            [
+              146.0,
+              141.0,
+              20.7
+            ]
+          ],
+          "size_mm": [
+            36.0,
+            26.0,
+            20.7
+          ],
+          "bed_z_mm": 0.0
+        },
+        {
+          "name": "axial_flex_gauge",
+          "passed": true,
+          "valid_brep": true,
+          "solid_count": 1,
+          "watertight": true,
+          "bounds_mm": [
+            [
+              125.77701627034196,
+              118.00000000000028,
+              0.0
+            ],
+            [
+              130.22298372965827,
+              137.99999999999972,
+              16.0
+            ]
+          ],
+          "size_mm": [
+            4.445967459316307,
+            19.99999999999943,
+            16.0
+          ],
+          "bed_z_mm": 0.0
+        },
+        {
+          "name": "shaft_clamp_gauge",
+          "passed": true,
+          "valid_brep": true,
+          "solid_count": 1,
+          "watertight": true,
+          "bounds_mm": [
+            [
+              118.0,
+              118.00625391114045,
+              0.0
+            ],
+            [
+              138.0,
+              137.99374608885955,
+              9.7
+            ]
+          ],
+          "size_mm": [
+            20.0,
+            19.987492177719105,
+            9.7
+          ],
+          "bed_z_mm": 0.0
+        },
+        {
+          "name": "shaft_access_frame",
+          "passed": true,
+          "valid_brep": true,
+          "solid_count": 1,
+          "watertight": true,
+          "bounds_mm": [
+            [
+              68.0,
+              95.5,
+              0.0
+            ],
+            [
+              188.0,
+              160.5,
+              14.0
+            ]
+          ],
+          "size_mm": [
+            120.0,
+            65.0,
+            14.0
+          ],
+          "bed_z_mm": 0.0
+        }
+      ]
+    },
+    {
+      "name": "Catalog hardware classification",
+      "passed": true,
+      "custom_parts": [],
+      "standard_designations_without_vendor_sku": []
+    }
+  ],
+  "limits": [
+    "Geometry checks do not establish torque, efficiency, fatigue life or loaded backlash.",
+    "New packaging, full-height planets and zero axial float require physical coupon and assembly trials."
+  ],
+  "files": [
+    {
+      "path": "print/axial_cavity_0.3mf",
+      "bytes": 8531
+    },
+    {
+      "path": "print/axial_cavity_0.stl",
+      "bytes": 35684
+    },
+    {
+      "path": "print/axial_cavity_1.3mf",
+      "bytes": 7966
+    },
+    {
+      "path": "print/axial_cavity_1.stl",
+      "bytes": 33284
+    },
+    {
+      "path": "print/axial_cavity_2.3mf",
+      "bytes": 8814
+    },
+    {
+      "path": "print/axial_cavity_2.stl",
+      "bytes": 36484
+    },
+    {
+      "path": "print/axial_flex_gauge.3mf",
+      "bytes": 4395
+    },
+    {
+      "path": "print/axial_flex_gauge.stl",
+      "bytes": 13884
+    },
+    {
+      "path": "print/fits_plate_00.3mf",
+      "bytes": 441229
+    },
+    {
+      "path": "print/fits_plate_00.stl",
+      "bytes": 1509384
+    },
+    {
+      "path": "print/fits_plate_minus_01.3mf",
+      "bytes": 439843
+    },
+    {
+      "path": "print/fits_plate_minus_01.stl",
+      "bytes": 1505184
+    },
+    {
+      "path": "print/fits_plate_plus_01.3mf",
+      "bytes": 440589
+    },
+    {
+      "path": "print/fits_plate_plus_01.stl",
+      "bytes": 1506784
+    },
+    {
+      "path": "print/motor_corner_0.3mf",
+      "bytes": 122036
+    },
+    {
+      "path": "print/motor_corner_0.stl",
+      "bytes": 400684
+    },
+    {
+      "path": "print/motor_corner_1.3mf",
+      "bytes": 122800
+    },
+    {
+      "path": "print/motor_corner_1.stl",
+      "bytes": 403884
+    },
+    {
+      "path": "print/motor_corner_2.3mf",
+      "bytes": 122668
+    },
+    {
+      "path": "print/motor_corner_2.stl",
+      "bytes": 403284
+    },
+    {
+      "path": "print/output_seat_00.3mf",
+      "bytes": 113364
+    },
+    {
+      "path": "print/output_seat_00.stl",
+      "bytes": 377084
+    },
+    {
+      "path": "print/output_seat_minus_01.3mf",
+      "bytes": 112446
+    },
+    {
+      "path": "print/output_seat_minus_01.stl",
+      "bytes": 373084
+    },
+    {
+      "path": "print/output_seat_plus_01.3mf",
+      "bytes": 112721
+    },
+    {
+      "path": "print/output_seat_plus_01.stl",
+      "bytes": 374684
+    },
+    {
+      "path": "print/shaft_access_frame.3mf",
+      "bytes": 81332
+    },
+    {
+      "path": "print/shaft_access_frame.stl",
+      "bytes": 325584
+    },
+    {
+      "path": "print/shaft_clamp_gauge.3mf",
+      "bytes": 40563
+    },
+    {
+      "path": "print/shaft_clamp_gauge.stl",
+      "bytes": 162284
+    },
+    {
+      "path": "print/tooth_flex_plain.3mf",
+      "bytes": 51124
+    },
+    {
+      "path": "print/tooth_flex_plain.stl",
+      "bytes": 169284
+    },
+    {
+      "path": "print/tooth_flex_planetary.3mf",
+      "bytes": 50932
+    },
+    {
+      "path": "print/tooth_flex_planetary.stl",
+      "bytes": 169284
+    },
+    {
+      "path": "print/tooth_ring_plain_00.3mf",
+      "bytes": 80692
+    },
+    {
+      "path": "print/tooth_ring_plain_00.stl",
+      "bytes": 255884
+    },
+    {
+      "path": "print/tooth_ring_plain_minus_01.3mf",
+      "bytes": 79572
+    },
+    {
+      "path": "print/tooth_ring_plain_minus_01.stl",
+      "bytes": 251084
+    },
+    {
+      "path": "print/tooth_ring_plain_plus_01.3mf",
+      "bytes": 79993
+    },
+    {
+      "path": "print/tooth_ring_plain_plus_01.stl",
+      "bytes": 252684
+    },
+    {
+      "path": "print/tooth_ring_planetary_00.3mf",
+      "bytes": 80684
+    },
+    {
+      "path": "print/tooth_ring_planetary_00.stl",
+      "bytes": 255884
+    },
+    {
+      "path": "print/tooth_ring_planetary_minus_01.3mf",
+      "bytes": 79576
+    },
+    {
+      "path": "print/tooth_ring_planetary_minus_01.stl",
+      "bytes": 251084
+    },
+    {
+      "path": "print/tooth_ring_planetary_plus_01.3mf",
+      "bytes": 79994
+    },
+    {
+      "path": "print/tooth_ring_planetary_plus_01.stl",
+      "bytes": 252684
+    },
+    {
+      "path": "print.csv",
+      "bytes": 11232
+    }
+  ]
+}

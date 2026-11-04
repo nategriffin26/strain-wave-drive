@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0a0d13" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f7fb" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
+<title>Strain-wave drive</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='26' fill='%23121722'/%3E%3Cellipse cx='32' cy='32' rx='20' ry='14' fill='none' stroke='%23a2abbf' stroke-width='4'/%3E%3Ccircle cx='32' cy='32' r='5' fill='%23e6eaf3'/%3E%3C/svg%3E">
+<script>
+(() => {
+  const system = matchMedia('(prefers-color-scheme: dark)');
+  let preference = 'system';
+  try { preference = localStorage.getItem('strain-wave-theme') || 'system'; } catch {}
+  if (!['system', 'dark', 'light'].includes(preference)) preference = 'system';
+  function applyTheme() {
+    const theme = preference === 'system' ? (system.matches ? 'dark' : 'light') : preference;
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.style.colorScheme = theme;
+    document.querySelectorAll('meta[name="theme-color"]').forEach(meta => { meta.content = theme === 'dark' ? '#0a0d13' : '#f5f7fb'; });
+    const toggle = document.getElementById('theme');
+    if (toggle) {
+      toggle.setAttribute('aria-label', `Theme: ${preference[0].toUpperCase() + preference.slice(1)}`);
+      toggle.title = toggle.getAttribute('aria-label');
+    }
+    dispatchEvent(new CustomEvent('viewer-theme', {detail: theme}));
+  }
+  applyTheme();
+  system.addEventListener('change', () => { if (preference === 'system') applyTheme(); });
+  addEventListener('DOMContentLoaded', () => {
+    applyTheme();
+    document.getElementById('theme').addEventListener('click', () => {
+      preference = ['system', 'light', 'dark'][(['system', 'light', 'dark'].indexOf(preference) + 1) % 3];
+      try { if (preference === 'system') localStorage.removeItem('strain-wave-theme'); else localStorage.setItem('strain-wave-theme', preference); } catch {}
+      applyTheme();
+    });
+  });
+})();
+</script>
+<style>
+@font-face{font-family:Geist;src:url("https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/Geist-Variable.woff2") format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Geist Mono";src:url("https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-mono/GeistMono-Variable.woff2") format("woff2");font-weight:100 900;font-display:swap}
+:root{--bg:#0a0d13;--bg-2:#121722;--side:#0c1018;--fg:#e6eaf3;--fg-2:#a2abbf;--muted:#7c85a1;--faint:#384056;--line:rgba(150,175,255,.075);--line-2:rgba(150,175,255,.14);--hover:rgba(150,175,255,.045);--sel:rgba(150,175,255,.08);--accent:#6f8cff;--bad:#ff5b69;--overlay:rgba(2,4,10,.62);--raise:linear-gradient(180deg,rgba(150,175,255,.075),rgba(150,175,255,.03));--raise-edge:inset 0 1px 0 rgba(200,215,255,.06);--lift:0 18px 50px rgba(0,0,0,.3);--page:linear-gradient(180deg,#0f1422 0%,#0a0d13 380px);--ease:cubic-bezier(.2,0,0,1);--spring:cubic-bezier(.32,.72,0,1);--mono:"Geist Mono",ui-monospace,monospace}
+:root[data-theme=light]{--bg:#f5f7fb;--bg-2:#fff;--side:#edf1f8;--fg:#0d1222;--fg-2:#3c465c;--muted:#5c667e;--faint:#b6bdcc;--line:rgba(25,45,110,.085);--line-2:rgba(25,45,110,.16);--hover:rgba(40,70,200,.04);--sel:rgba(40,70,200,.07);--accent:#2855ef;--bad:#c9283e;--overlay:rgba(10,20,50,.28);--raise:linear-gradient(180deg,#fff,#f6f8fd);--raise-edge:0 1px 1.5px rgba(20,40,100,.07);--lift:0 18px 50px rgba(10,20,60,.12);--page:linear-gradient(180deg,#ebf0fb 0%,#f5f7fb 380px)}
+:root{--pa6:#b3161c}:root[data-theme=light]{--pa6:#9c1218}
+*{box-sizing:border-box}[hidden],select{display:none!important}
+html,body{height:100%;overflow:hidden;overscroll-behavior:none;background:var(--bg)}
+body{margin:0;color:var(--fg);font:13.5px/1.45 Geist,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:-.005em;font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent;display:flex;flex-direction:column;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
+button,input{font:inherit;color:inherit}button{cursor:pointer;position:relative;border:1px solid var(--line-2);background:var(--raise);box-shadow:var(--raise-edge);border-radius:7px;padding:4px 10px;min-height:28px;font-size:12.5px;font-weight:500;white-space:nowrap;transition:transform .15s var(--ease)}button:hover{background:var(--hover)}button:active{transform:scale(.97)}button:disabled{opacity:.4;cursor:default}
+:focus-visible{outline:1.5px solid var(--accent);outline-offset:2px}a{color:inherit;text-decoration:none}a:hover{color:var(--fg)}svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+header{flex:none;height:52px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 24px;background:color-mix(in srgb,var(--bg) 84%,transparent);backdrop-filter:blur(18px) saturate(1.4);border-bottom:1px solid var(--line);z-index:10}
+h1{font-size:15px;font-weight:600;letter-spacing:-.01em;margin:0}.header-actions{display:flex;align-items:center;gap:16px}header a{color:var(--muted);font-size:12px}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;min-height:34px;padding:0;border:0;box-shadow:none;background:none;border-radius:8px;color:var(--fg-2);flex:none}.icon-btn:hover{background:var(--hover)}.icon-btn:active{transform:scale(.94)}#theme{font-size:20px}
+.layout{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 340px;overflow:hidden}.stage{position:relative;display:flex;flex-direction:column;min-width:0;min-height:0;background:var(--page)}
+.stage-toolbar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:16px 24px 8px;flex:none}.stage-tools{display:flex;align-items:center;gap:8px}
+.seg{display:inline-flex;padding:2px;border:1px solid var(--line-2);border-radius:8px;background:var(--raise);gap:2px}.seg button{background:none;border:0;box-shadow:none;color:var(--muted);padding:4px 10px;border-radius:6px}.seg button[aria-pressed=true]{background:var(--sel);color:var(--fg)}
+#viewport{position:relative;flex:1;min-height:200px;touch-action:none;cursor:grab}#viewport:active{cursor:grabbing}canvas{display:block;width:100%;height:100%}
+#notice:has(.skeleton){display:flex;align-items:center;gap:12px;background:none;border:0;padding:12px 0}#notice:has(.skeleton)::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent)}.skeleton{display:block;width:180px;height:8px;border-radius:4px;background:var(--line-2);animation:breathe 2.4s ease-in-out infinite}@keyframes breathe{50%{opacity:.3}}
+#notice{position:absolute;top:96px;left:24px;right:24px;z-index:4;max-width:460px;font-size:12px;background:var(--bg-2);border:1px solid var(--line-2);padding:12px 16px;border-radius:9px}#notice.error{color:var(--bad)}
+.phase-controls{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center;margin:0 24px;flex:none}.phase-controls .control{border:0}.button-row{display:flex;align-items:center;gap:6px}
+.stage-opacity{margin:0 24px;flex:none}.stage-opacity .control{border-top:1px solid var(--line)}
+.metrics{margin:0 24px 16px;flex:none;font:12px/1.5 var(--mono);letter-spacing:-.01em}.metric{display:flex;align-items:baseline;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line);gap:16px}.metric small{font:inherit;color:var(--muted)}.metric strong{font:500 12px var(--mono);color:var(--fg)}.metric em{font:11.5px var(--mono);color:var(--muted);font-style:normal;margin-left:6px}
+.panel{overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--line-2) transparent;min-width:0;background:var(--side);border-left:1px solid var(--line);padding:0 20px;display:flex;flex-direction:column}.panel section{flex:none;padding:16px 0;border-bottom:1px solid var(--line)}
+h2{font-size:12.5px;font-weight:600;color:var(--fg-2);margin:0 0 6px}.control{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:0 12px;padding:10px 0;border-bottom:1px solid var(--line)}.control>label{color:var(--muted);font-size:12px;min-width:0}.control label:has(output){display:flex;justify-content:space-between;align-items:baseline;gap:12px;grid-column:1/-1}.control output{font:12px var(--mono);color:var(--fg);white-space:nowrap}
+input[type=range]{--fill:0%;grid-column:1/-1;appearance:none;-webkit-appearance:none;display:block;width:100%;min-width:0;margin:0;height:28px;cursor:pointer;background:linear-gradient(to right,var(--fg-2) 0 var(--fill),var(--line-2) var(--fill) 100%) center/100% 2px no-repeat}
+input[type=range]::-webkit-slider-runnable-track{height:2px;background:transparent}input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:14px;height:14px;border:1px solid var(--line-2);border-radius:50%;background:var(--bg-2);box-shadow:var(--raise-edge);margin-top:-6px}
+input[type=range]::-moz-range-track{height:2px;background:transparent}input[type=range]::-moz-range-thumb{width:12px;height:12px;border:1px solid var(--line-2);border-radius:50%;background:var(--bg-2);box-shadow:var(--raise-edge)}
+.toggle-row{display:flex;align-items:center;justify-content:space-between;min-height:44px;border-bottom:1px solid var(--line);color:var(--muted);font-size:12px}.toggle{min-width:44px;border-radius:6px;font-size:11.5px;color:var(--fg-2);background:none;box-shadow:none}.toggle[aria-pressed=true]{color:var(--bg);background:var(--fg);border-color:var(--fg)}
+.mechanism{display:flex}.mechanism button{flex:1}
+details{font-size:12px;color:var(--fg-2);border-bottom:1px solid var(--line)}summary{display:flex;align-items:center;justify-content:space-between;list-style:none;color:var(--fg-2);min-height:44px;padding:12px 0;gap:12px;cursor:pointer}summary::-webkit-details-marker{display:none}summary::after{content:"›";font-size:18px;color:var(--faint);transition:transform .15s var(--ease)}details[open]>summary::after{transform:rotate(90deg)}
+.part-row{padding:8px 0}.group-opacity label span:first-child{display:flex;gap:6px;align-items:center}.material-key{width:6px;height:6px;border-radius:50%;background:var(--fg-2)}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:899px){body{font-size:14px}header{padding:0 16px}header a{display:inline-flex;align-items:center;min-height:44px}.header-actions{gap:12px}button{min-height:44px}.layout{display:block;overflow-y:auto;overscroll-behavior:contain}.stage{height:auto}.stage-toolbar{padding:12px 16px 4px;gap:8px}.stage-tools{width:100%}.stage-tools .seg{flex:1}.stage-tools .seg button{flex:1}.icon-btn{width:44px;height:44px;min-height:44px}#viewport{flex:none;height:clamp(300px,46svh,460px);min-height:300px}.phase-controls{margin:0 16px;gap:12px}.stage-opacity{margin:0 16px}.metrics{margin:0 16px 16px}.panel{overflow:visible;border-left:0;border-top:1px solid var(--line);padding:0 16px}.seg button{min-height:44px}.toggle{min-height:32px}.control input[type=range]{height:44px}#notice{top:130px;left:16px;right:16px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+</head>
+<body>
+<header><h1>Strain-wave drive</h1><div class="header-actions"><a href="../">README</a><button id="theme" class="icon-btn" aria-label="Theme: System" title="Theme: System">◐</button></div></header>
+<main class="layout">
+<div class="stage">
+  <div class="stage-toolbar">
+    <div class="stage-tools"><div class="seg" role="group" aria-label="Camera"><button id="home" aria-pressed="true">Isometric</button><button id="top" aria-pressed="false">Axial</button></div><button id="reveal" class="icon-btn" aria-label="Reveal internals" title="Reveal internals"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m2 10 8-5 8 5-8 5Z"/><path d="m2 6 8-4 8 4M2 14l8 4 8-4"/></svg></button></div>
+  </div>
+  <div id="viewport" role="img" aria-label="Strain-wave drive assembly"></div>
+  <div class="phase-controls">
+    <div class="control"><label for="phase">Motor angle <output id="phase-value">0.0°</output></label><input id="phase" type="range" min="0" max="360" step="0.1" value="0"></div>
+    <div class="button-row"><button id="pause" class="icon-btn" aria-label="Pause motion" title="Pause motion" aria-pressed="false"><svg viewBox="0 0 20 20" aria-hidden="true"><path id="pause-glyph" d="M7 4v12M13 4v12"/></svg></button><button id="reset-phase" class="icon-btn" aria-label="Reset motor angle" title="Reset motor angle"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7a7 7 0 1 1-1 6M4 2v5h5"/></svg></button></div>
+  </div>
+  <div id="output-opacity" class="stage-opacity"></div>
+  <div id="notice" role="status"><span class="sr-only">Loading model…</span><i class="skeleton" aria-hidden="true"></i></div>
+  <div class="metrics"><div class="metric"><small>ratio</small><strong id="ratio-readout"></strong></div><div class="metric"><small>output</small><strong><span id="speed-readout"></span><em>rpm</em></strong></div><div class="metric"><small>wave generator</small><strong><span id="carrier-readout"></span><em>rpm</em></strong></div></div>
+</div>
+<aside class="panel" aria-label="Viewer controls">
+<section>
+  <h2>Mechanism</h2>
+  <div class="seg mechanism" role="group" aria-label="Mechanism"><button id="preset-planetary" data-preset="planetary" aria-pressed="true">Planetary</button><button id="preset-plain" data-preset="plain" aria-pressed="false">Plain</button></div>
+</section>
+<section>
+  <h2>Motion</h2>
+  <div class="control"><label for="rpm">Motor speed <output id="rpm-value">60 rpm</output></label><input id="rpm" type="range" min="0" max="600" step="1" value="60"></div>
+  <div class="control"><label for="playback">Playback <output id="playback-value">0.1×</output></label><input id="playback" type="range" min="0" max="3" step="1" value="1"></div>
+  <div class="control"><label for="explode">Separation <output id="explode-value">0%</output></label><input id="explode" type="range" min="0" max="100" step="1" value="0"></div>
+</section>
+<section>
+  <h2>Visibility</h2>
+  <div class="toggle-row"><span>Hardware</span><button id="hardware" type="button" class="toggle" aria-label="Show bearings and fasteners" aria-pressed="true">On</button></div>
+  <div class="toggle-row"><span>Opacity</span><button id="opaque" type="button">All opaque</button></div>
+  <div id="opacity-controls"></div>
+</section>
+</aside>
+</main>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const $ = id => document.getElementById(id);
+const TAU = Math.PI * 2;
+const PLAYBACK = [0.02, 0.1, 0.5, 1];
+const ROLES = new Set(['ground', 'input', 'carrier', 'planet', 'flex', 'output']);
+const MATERIALS = new Set(['flex', 'printed', 'printed_accent', 'steel', 'brass', 'motor']);
+const groupLabels = {
+  planetary: {ground: 'Housing', input: 'Sun and shaft', carrier: 'Wave generator', planet: 'Planets', flex: 'Flexspline', output: 'Output drum'},
+  plain: {ground: 'Housing', input: 'Motor shaft', carrier: 'Wave generator', planet: 'Rollers', flex: 'Flexspline', output: 'Output drum'},
+};
+const materialSpecs = {flex: {metalness: 0, roughness: 0.56}, printed: {metalness: 0.02, roughness: 0.51}, printed_accent: {metalness: 0.02, roughness: 0.51},
+  steel: {metalness: 0.75, roughness: 0.3}, brass: {metalness: 0.65, roughness: 0.36}, motor: {metalness: 0.25, roughness: 0.5}};
+const params = new URLSearchParams(location.search);
+const state = {
+  preset: params.get('preset') === 'plain' ? 'plain' : 'planetary',
+  report: null, assembly: null, paused: matchMedia('(prefers-reduced-motion: reduce)').matches,
+  inputAngle: 0, rpm: 60, playback: 0.1, explode: 0, hardware: true,
+  groupOpacity: new Map(), partOpacity: new Map(), loading: false,
+};
+
+const viewport = $('viewport');
+let renderer;
+try {
+  renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
+} catch (error) {
+  showNotice('WebGL is unavailable. Enable hardware acceleration or use a WebGL-capable browser.', true);
+  throw error;
+}
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.setClearColor(0x000000, 0);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+viewport.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+const room = new RoomEnvironment();
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(room, 0.04).texture;
+room.dispose(); pmrem.dispose();
+const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 10000);
+camera.up.set(0, 0, 1);
+const orbit = new OrbitControls(camera, renderer.domElement);
+orbit.enableDamping = true;
+const hemisphere = new THREE.HemisphereLight(0xffffff, 0x67716c, 0.6);
+scene.add(hemisphere);
+const studioLights = [[100, -150, 220, 2], [-150, 10, 90, 0.5], [80, 140, 30, 0.8]].map(([x, y, z, intensity]) => {
+  const light = new THREE.DirectionalLight(0xffffff, intensity);
+  light.position.set(x, y, z);
+  scene.add(light);
+  return light;
+});
+let inkColors;
+function applySceneTheme() {
+  const dark = document.documentElement.dataset.theme === 'dark';
+  const css = getComputedStyle(document.documentElement), color = token => new THREE.Color(css.getPropertyValue(token).trim());
+  const printed = color('--muted').lerp(color('--faint'), 0.3);
+  inkColors = {flex: color('--pa6'), printed, printed_accent: printed.clone().lerp(color('--fg-2'), 0.25), steel: color('--muted').lerp(color('--fg-2'), 0.5),
+    brass: color('--muted'), motor: color('--faint'), tick: color(dark ? '--bg' : '--fg')};
+  hemisphere.groundColor.setHex(dark ? 0x536078 : 0xabb5c8);
+  for (const part of state.assembly?.parts || []) {
+    for (const mesh of part.meshes) mesh.material.color.copy(inkColors[part.meta.material]);
+    part.tick?.material.color.copy(inkColors.tick);
+  }
+}
+addEventListener('viewer-theme', applySceneTheme);
+applySceneTheme();
+const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
+const rotation = new THREE.Matrix4(), translation = new THREE.Matrix4(), motion = new THREE.Matrix4(), desiredWorld = new THREE.Matrix4(), inverseParent = new THREE.Matrix4();
+
+function showNotice(text, error = false) {
+  $('notice').hidden = !text;
+  $('notice').textContent = text;
+  $('notice').classList.toggle('error', error);
+}
+function element(tag, text, className) {
+  const node = document.createElement(tag);
+  if (text !== undefined) node.textContent = text;
+  if (className) node.className = className;
+  return node;
+}
+function paintRange(input) {
+  const span = Number(input.max) - Number(input.min);
+  input.style.setProperty('--fill', `${span ? 100 * (Number(input.value) - Number(input.min)) / span : 0}%`);
+}
+document.addEventListener('input', event => { if (event.target.matches('input[type=range]')) paintRange(event.target); });
+function number(value, digits = 2) {
+  return Number.isFinite(value) ? (value === 0 ? 0 : value).toLocaleString(undefined, {maximumFractionDigits: digits}).replace('-', '−') : '—';
+}
+const finite = value => Number.isFinite(value) && value !== 0;
+
+// The report's motion block is the only source of kinematics; anything missing is an error, not a default.
+function validMotion(report) {
+  const m = report?.motion;
+  if (!m) throw new Error('report.json has no motion block.');
+  const r = m.ratios || {};
+  if (!finite(r.motor_to_output) || !finite(r.motor_to_carrier)) throw new Error('report.json motion has no signed motor-to-output and motor-to-carrier ratios.');
+  const planetRatio = m.variant === 'plain' ? r.motor_to_roller : r.motor_to_planet;
+  if (m.parts?.some(p => p.role === 'planet') && !finite(planetRatio)) throw new Error(`report.json motion has no ${m.variant === 'plain' ? 'motor_to_roller' : 'motor_to_planet'} ratio.`);
+  const w = m.wave;
+  if (w?.model !== 'sampled_neutral_curve' || !(w.neutral_radius_mm > 0) || !Array.isArray(w.samples) || w.samples.length < 8
+      || w.samples.some(row => row.length < 4 || row.some(v => !Number.isFinite(v)))) {
+    throw new Error('report.json motion has no sampled neutral curve for the flex.');
+  }
+  if (!Array.isArray(m.parts) || !m.parts.length) throw new Error('report.json motion lists no parts.');
+  for (const p of m.parts) {
+    if (!p.id || !ROLES.has(p.role) || !MATERIALS.has(p.material) || !Array.isArray(p.pivot_mm) || p.pivot_mm.length !== 3 || p.pivot_mm.some(v => !Number.isFinite(v))) {
+      throw new Error(`report.json motion part “${p.id}” lacks a valid role, material or pivot.`);
+    }
+  }
+  return m;
+}
+
+// GPU deformation of the neutral flex: material angle q = atan2(y, x) + flexAngle − waveAngle picks a row
+// of the sampled neutral curve; the vertex keeps its radial offset along the sampled normal; the result
+// turns with the wave generator. Row 1 holds curvature and arc speed so normals map with the surface.
+const FLEX_VERTEX_SHADER = `
+uniform sampler2D waveMap;
+uniform vec4 waveMotion;
+uniform float neutralRadius;
+uniform mat4 flexToWorld;
+uniform mat4 flexToLocal;
+uniform mat3 flexNormalToWorld;
+uniform mat3 flexNormalToLocal;
+void flexDeform(vec3 originalPosition, vec3 originalNormal, out vec3 resultPosition, out vec3 resultNormal) {
+  vec3 p = (flexToWorld * vec4(originalPosition, 1.0)).xyz;
+  vec3 normal = normalize(flexNormalToWorld * originalNormal);
+  float radius = length(p.xy);
+  vec2 radialAxis = p.xy / radius;
+  float q = mod(atan(p.y, p.x) + waveMotion.x, 6.283185307179586);
+  int count = textureSize(waveMap, 0).x;
+  float index = q * float(count) / 6.283185307179586;
+  int lo = int(floor(index)) % count;
+  int hi = (lo + 1) % count;
+  float t = fract(index);
+  vec4 frame = mix(texelFetch(waveMap, ivec2(lo, 0), 0), texelFetch(waveMap, ivec2(hi, 0), 0), t);
+  vec2 shape = mix(texelFetch(waveMap, ivec2(lo, 1), 0).rg, texelFetch(waveMap, ivec2(hi, 1), 0).rg, t);
+  vec2 n = normalize(frame.zw);
+  float offset = radius - neutralRadius;
+  vec2 point = frame.xy + offset * n;
+  float ch = waveMotion.y, sh = waveMotion.z;
+  resultPosition = (flexToLocal * vec4(ch * point.x - sh * point.y, sh * point.x + ch * point.y, p.z, 1.0)).xyz;
+  float radial = dot(normal.xy, radialAxis);
+  float tangent = dot(normal.xy, vec2(-radialAxis.y, radialAxis.x)) * radius / (shape.y * (1.0 + shape.x * offset));
+  vec2 mapped = radial * n + tangent * vec2(-n.y, n.x);
+  vec3 worldNormal = normalize(vec3(ch * mapped.x - sh * mapped.y, sh * mapped.x + ch * mapped.y, normal.z));
+  resultNormal = normalize(flexNormalToLocal * worldNormal);
+}
+`;
+function waveTexture(wave) {
+  const s = wave.samples, count = s.length, dq = TAU / count;
+  const data = new Float32Array(count * 8);
+  for (let i = 0; i < count; i++) {
+    const a = s[(i - 1 + count) % count], b = s[i], c = s[(i + 1) % count];
+    const dx = (c[0] - a[0]) / (2 * dq), dy = (c[1] - a[1]) / (2 * dq);
+    const ddx = (c[0] - 2 * b[0] + a[0]) / (dq * dq), ddy = (c[1] - 2 * b[1] + a[1]) / (dq * dq);
+    const speed = Math.hypot(dx, dy);
+    data.set([b[0], b[1], b[2], b[3]], i * 4);
+    data.set([(dx * ddy - dy * ddx) / speed ** 3, speed, 0, 0], count * 4 + i * 4);
+  }
+  const texture = new THREE.DataTexture(data, count, 2, THREE.RGBAFormat, THREE.FloatType);
+  texture.minFilter = texture.magFilter = THREE.NearestFilter;
+  texture.needsUpdate = true;
+  return texture;
+}
+function configureFlexMaterial(mesh, assembly) {
+  const base = mesh.matrixWorld.clone(), normalMatrix = new THREE.Matrix3().getNormalMatrix(base);
+  const uniforms = {
+    waveMap: {value: assembly.waveMap}, waveMotion: assembly.waveMotion, neutralRadius: {value: assembly.motion.wave.neutral_radius_mm},
+    flexToWorld: {value: base}, flexToLocal: {value: base.clone().invert()},
+    flexNormalToWorld: {value: normalMatrix}, flexNormalToLocal: {value: normalMatrix.clone().invert()},
+  };
+  mesh.material.onBeforeCompile = shader => {
+    Object.assign(shader.uniforms, uniforms);
+    shader.vertexShader = FLEX_VERTEX_SHADER + shader.vertexShader
+      .replace('#include <beginnormal_vertex>', 'vec3 flexPosition; vec3 flexNormal; flexDeform(position, normal, flexPosition, flexNormal);\n#include <beginnormal_vertex>\nobjectNormal = flexNormal;')
+      .replace('#include <begin_vertex>', 'vec3 transformed = flexPosition;');
+  };
+  mesh.material.customProgramCacheKey = () => 'sampled-neutral-curve-v1';
+  mesh.frustumCulled = false;
+}
+function disposeAssembly(assembly) {
+  if (!assembly) return;
+  assembly.root.traverse(node => {
+    node.geometry?.dispose();
+    for (const material of [node.material].flat()) material?.dispose();
+  });
+  assembly.waveMap?.dispose();
+  assembly.root.removeFromParent();
+}
+// Separation stacks groups along the axis, bottom to top, each clear of the one below.
+function explodeOffsets(assembly) {
+  const groups = new Map();
+  for (const part of assembly.parts) {
+    const key = part.meta.group || part.meta.role;
+    if (!groups.has(key)) groups.set(key, {parts: [], box: new THREE.Box3()});
+    const group = groups.get(key);
+    group.parts.push(part);
+    for (const mesh of part.meshes) group.box.union(new THREE.Box3().setFromObject(mesh));
+  }
+  const ordered = [...groups.values()].sort((a, b) => a.box.min.z - b.box.min.z || a.box.max.z - b.box.max.z);
+  const total = new THREE.Box3(); ordered.forEach(g => total.union(g.box));
+  const gap = 0.06 * (total.max.z - total.min.z);
+  let lift = 0, previousTop = null;
+  for (const group of ordered) {
+    if (previousTop !== null) lift = Math.max(lift, previousTop + gap - group.box.min.z);
+    group.parts.forEach(part => { part.explode = lift; });
+    previousTop = group.box.max.z + lift;
+  }
+}
+async function loadAssembly(preset) {
+  const base = new URL(`../models/${preset}/`, location.href);
+  const response = await fetch(new URL('report.json', base));
+  if (!response.ok) throw new Error(`models/${preset}/report.json is missing (${response.status}). Run the generator for ${preset}.`);
+  const report = await response.json();
+  const m = validMotion(report);
+  const gltf = await loader.loadAsync(new URL(`${preset}.glb`, base).href);
+  const root = new THREE.Group();
+  root.add(gltf.scene);
+  root.updateMatrixWorld(true);
+  const assembly = {root, parts: [], motion: m, waveMap: waveTexture(m.wave), waveMotion: {value: new THREE.Vector4(0, 1, 0, 0)}};
+  try {
+    const metadata = new Map(m.parts.map(part => [part.id, part]));
+    const found = new Map();
+    gltf.scene.traverse(node => {
+      node.updateMatrix();
+      node.matrixAutoUpdate = false;
+      if (metadata.has(node.name) && !found.has(node.name)) found.set(node.name, node);
+    });
+    for (const meta of m.parts) {
+      const node = found.get(meta.id);
+      if (!node) throw new Error(`${preset}.glb has no node “${meta.id}”.`);
+      const entry = {meta, node, baseWorld: node.matrixWorld.clone(), meshes: [], explode: 0};
+      node.traverse(child => { if (child.isMesh) entry.meshes.push(child); });
+      if (!entry.meshes.length) throw new Error(`Part “${meta.id}” has no mesh.`);
+      for (const mesh of entry.meshes) {
+        [mesh.material].flat().forEach(material => material?.dispose());
+        mesh.material = new THREE.MeshStandardMaterial({...materialSpecs[meta.material], color: inkColors[meta.material], side: THREE.DoubleSide});
+        if (!mesh.geometry.attributes.normal) mesh.geometry.computeVertexNormals();
+        if (meta.role === 'flex') configureFlexMaterial(mesh, assembly);
+      }
+      if (meta.role === 'planet' && ['printed', 'printed_accent'].includes(meta.material)) {
+        // One asymmetric tick on the top face makes a toothed planet's spin visible; it is not part of the model.
+        const box = new THREE.Box3(); entry.meshes.forEach(mesh => box.union(new THREE.Box3().setFromObject(mesh)));
+        const [x, y] = meta.pivot_mm, radius = Math.min(box.max.x - box.min.x, box.max.y - box.min.y) / 2, z = box.max.z + 0.12;
+        const inverse = entry.baseWorld.clone().invert();
+        const points = [[x + radius * 0.5, y, z], [x + radius * 0.9, y, z], [x + radius * 0.9, y + radius * 0.18, z]].map(p => new THREE.Vector3(...p).applyMatrix4(inverse));
+        const tick = new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), new THREE.LineBasicMaterial({color: inkColors.tick, transparent: true, depthWrite: false, toneMapped: false}));
+        tick.matrixAutoUpdate = false; tick.renderOrder = 2;
+        node.add(tick); entry.tick = tick;
+      }
+      assembly.parts.push(entry);
+    }
+    explodeOffsets(assembly);
+    const byNode = new Map(assembly.parts.map(part => [part.node, part]));
+    assembly.orderedNodes = [];
+    root.traverse(node => assembly.orderedNodes.push({node, part: byNode.get(node)}));
+    assembly.bounds = new THREE.Box3().setFromObject(root);
+    return {assembly, report};
+  } catch (error) {
+    disposeAssembly(assembly);
+    throw error;
+  }
+}
+
+function updateGeometry() {
+  const assembly = state.assembly;
+  if (!assembly) return;
+  const r = assembly.motion.ratios, S = state.inputAngle;
+  const H = S / r.motor_to_carrier, F = S / r.motor_to_output;
+  const spin = assembly.motion.variant === 'plain' ? r.motor_to_roller : r.motor_to_planet;
+  const P = finite(spin) ? S / spin : 0;
+  for (const {node, part} of assembly.orderedNodes) {
+    if (part) {
+      const meta = part.meta;
+      motion.identity();
+      if (meta.role === 'planet') {
+        const [x, y, z] = meta.pivot_mm, ch = Math.cos(H), sh = Math.sin(H);
+        motion.makeTranslation(ch * x - sh * y, sh * x + ch * y, z);
+        motion.multiply(rotation.makeRotationZ(P));
+        motion.multiply(translation.makeTranslation(-x, -y, -z));
+      } else if (meta.role === 'carrier') motion.makeRotationZ(H);
+      else if (meta.role === 'input') motion.makeRotationZ(S);
+      else if (meta.role === 'output') motion.makeRotationZ(F);
+      if (state.explode) motion.premultiply(translation.makeTranslation(0, 0, part.explode * state.explode));
+      desiredWorld.multiplyMatrices(motion, part.baseWorld);
+      inverseParent.copy(node.parent.matrixWorld).invert();
+      node.matrix.multiplyMatrices(inverseParent, desiredWorld);
+    }
+    if (node.parent) node.matrixWorld.multiplyMatrices(node.parent.matrixWorld, node.matrix);
+    else node.matrixWorld.copy(node.matrix);
+    node.matrixWorldNeedsUpdate = false;
+  }
+  const wave = H + THREE.MathUtils.degToRad(assembly.motion.wave.axis_deg || 0);
+  assembly.waveMotion.value.set(((F - wave) % TAU + TAU) % TAU, Math.cos(wave), Math.sin(wave), 1);
+}
+function groupKey(meta) { return meta.role; }
+function applyOpacity() {
+  if (!state.assembly) return;
+  for (const part of state.assembly.parts) {
+    const hardware = ['steel', 'brass'].includes(part.meta.material);
+    const alpha = (state.groupOpacity.get(groupKey(part.meta)) ?? 1) * (state.partOpacity.get(part.meta.id) ?? 1);
+    part.node.visible = alpha > 0 && (!hardware || state.hardware);
+    for (const mesh of part.meshes) {
+      const transparent = alpha < 0.999;
+      if (mesh.material.transparent !== transparent) { mesh.material.transparent = transparent; mesh.material.needsUpdate = true; }
+      mesh.material.opacity = alpha;
+      mesh.material.depthWrite = !transparent;
+      mesh.renderOrder = transparent ? 1 : 0;
+    }
+    if (part.tick) part.tick.material.opacity = alpha;
+  }
+}
+function opacityControl(label, value, onChange, color) {
+  const row = element('div', undefined, 'control group-opacity');
+  const labelNode = element('label'), caption = element('span');
+  if (color) { const dot = element('i', undefined, 'material-key'); dot.style.background = color; caption.append(dot); }
+  caption.append(document.createTextNode(label));
+  const output = element('output', `${Math.round(value * 100)}%`);
+  const input = element('input');
+  input.type = 'range'; input.min = 0; input.max = 100; input.step = 1; input.value = value * 100;
+  input.setAttribute('aria-label', `${label} opacity`);
+  paintRange(input);
+  labelNode.append(caption, output);
+  input.addEventListener('input', () => { output.value = `${input.value}%`; onChange(Number(input.value) / 100); applyOpacity(); });
+  row.append(labelNode, input);
+  return row;
+}
+function populateOpacity() {
+  const container = $('opacity-controls');
+  container.replaceChildren(); $('output-opacity').replaceChildren();
+  const grouped = new Map();
+  for (const part of state.assembly.parts) {
+    const key = groupKey(part.meta);
+    if (!grouped.has(key)) grouped.set(key, []);
+    grouped.get(key).push(part.meta);
+  }
+  for (const role of ROLES) {
+    const parts = grouped.get(role);
+    if (!parts) continue;
+    const label = groupLabels[state.assembly.motion.variant === 'plain' ? 'plain' : 'planetary'][role];
+    const control = opacityControl(label, state.groupOpacity.get(role) ?? 1, value => state.groupOpacity.set(role, value), role === 'flex' ? 'var(--pa6)' : undefined);
+    if (role === 'output') { $('output-opacity').append(control); continue; }
+    const wrapper = element('div');
+    wrapper.append(control);
+    const detail = element('details');
+    detail.append(element('summary', `${parts.length} ${parts.length === 1 ? 'part' : 'parts'}`));
+    for (const meta of parts) {
+      const row = opacityControl(meta.label || meta.id, state.partOpacity.get(meta.id) ?? 1, value => state.partOpacity.set(meta.id, value));
+      row.classList.add('part-row');
+      detail.append(row);
+    }
+    wrapper.append(detail);
+    container.append(wrapper);
+  }
+}
+function setAllOpacity(overrides = {}) {
+  if (!state.assembly) return;
+  for (const part of state.assembly.parts) { state.groupOpacity.set(groupKey(part.meta), 1); state.partOpacity.set(part.meta.id, 1); }
+  for (const [role, value] of Object.entries(overrides)) state.groupOpacity.set(role, value);
+  state.hardware = true;
+  populateOpacity(); applyOpacity(); updateReadouts();
+}
+function updatePhaseReadout() {
+  const phase = ((state.inputAngle / TAU * 360) % 360 + 360) % 360;
+  $('phase').value = phase; paintRange($('phase'));
+  $('phase-value').value = `${phase.toFixed(1)}°`;
+}
+function updateReadouts() {
+  $('rpm-value').value = `${state.rpm} rpm`;
+  $('playback-value').value = `${state.playback}×`;
+  $('explode-value').value = `${Math.round(state.explode * 100)}%`;
+  const label = state.paused ? 'Resume motion' : 'Pause motion';
+  $('pause').setAttribute('aria-label', label); $('pause').title = label;
+  $('pause-glyph').setAttribute('d', state.paused ? 'm6 3 10 7-10 7Z' : 'M7 4v12M13 4v12');
+  $('pause').setAttribute('aria-pressed', String(state.paused));
+  $('hardware').textContent = state.hardware ? 'On' : 'Off';
+  $('hardware').setAttribute('aria-pressed', String(state.hardware));
+  for (const preset of ['planetary', 'plain']) $(`preset-${preset}`).setAttribute('aria-pressed', String(state.preset === preset));
+  document.querySelectorAll('input[type=range]').forEach(paintRange);
+  updatePhaseReadout();
+  if (!state.assembly) return;
+  const r = state.assembly.motion.ratios;
+  $('ratio-readout').textContent = `${number(r.motor_to_output, 2)} : 1`;
+  $('speed-readout').textContent = number(state.rpm / r.motor_to_output, 3);
+  $('carrier-readout').textContent = number(state.rpm / r.motor_to_carrier, 2);
+}
+function fitCamera(axial = false) {
+  const assembly = state.assembly;
+  if (!assembly) return;
+  $('home').setAttribute('aria-pressed', String(!axial));
+  $('top').setAttribute('aria-pressed', String(axial));
+  const bounds = assembly.bounds.clone();
+  bounds.max.z += Math.max(0, ...assembly.parts.map(part => part.explode * state.explode));
+  const center = bounds.getCenter(new THREE.Vector3()), size = bounds.getSize(new THREE.Vector3());
+  const radius = size.length() / 2;
+  const vertical = THREE.MathUtils.degToRad(camera.fov / 2), horizontal = Math.atan(Math.tan(vertical) * camera.aspect);
+  const direction = axial ? new THREE.Vector3(0, -0.0001, 1).normalize() : new THREE.Vector3(1.15, -1.5, state.explode ? 0.7 : 1.3).normalize();
+  const right = new THREE.Vector3().crossVectors(camera.up, direction).normalize();
+  const up = new THREE.Vector3().crossVectors(direction, right).normalize();
+  const basis = new THREE.Matrix4().set(right.x, right.y, right.z, -right.dot(center), up.x, up.y, up.z, -up.dot(center), direction.x, direction.y, direction.z, -direction.dot(center), 0, 0, 0, 1);
+  const projection = new THREE.Matrix4();
+  let distance = radius * 0.6;
+  // Fit the projected vertices, not the empty corners of a bounding sphere.
+  assembly.root.traverseVisible(mesh => {
+    if (!mesh.isMesh) return;
+    const p = mesh.geometry.attributes.position, e = projection.multiplyMatrices(basis, mesh.matrixWorld).elements;
+    for (let i = 0; i < p.count; i += 3) {
+      const x = p.getX(i), y = p.getY(i), z = p.getZ(i);
+      const sx = e[0] * x + e[4] * y + e[8] * z + e[12], sy = e[1] * x + e[5] * y + e[9] * z + e[13], depth = e[2] * x + e[6] * y + e[10] * z + e[14];
+      distance = Math.max(distance, depth + Math.abs(sx) / Math.tan(horizontal), depth + Math.abs(sy) / Math.tan(vertical));
+    }
+  });
+  distance *= 1.07;
+  orbit.target.copy(center);
+  camera.position.copy(center).addScaledVector(direction, distance);
+  orbit.minDistance = Math.max(radius * 0.2, 1); orbit.maxDistance = distance * 8;
+  camera.near = Math.max(radius / 100, 0.1); camera.far = distance * 12;
+  camera.updateProjectionMatrix(); orbit.update();
+}
+function resize() {
+  const width = viewport.clientWidth, height = viewport.clientHeight;
+  if (!width || !height) return;
+  camera.aspect = width / height; camera.updateProjectionMatrix();
+  renderer.setSize(width, height);
+}
+new ResizeObserver(resize).observe(viewport);
+
+async function showPreset(preset) {
+  if (state.loading) return;
+  state.loading = true;
+  const previous = state.preset;
+  state.preset = preset;
+  updateReadouts();
+  if (!state.assembly) showNotice('');
+  try {
+    const {assembly, report} = await loadAssembly(preset);
+    disposeAssembly(state.assembly);
+    Object.assign(state, {assembly, report, inputAngle: 0});
+    for (const part of assembly.parts) if (!state.groupOpacity.has(groupKey(part.meta))) state.groupOpacity.set(groupKey(part.meta), part.meta.role === 'output' ? 0.12 : 1);
+    applySceneTheme(); updateGeometry(); applyOpacity(); populateOpacity();
+    scene.add(assembly.root);
+    resize(); fitCamera(); updateReadouts();
+    viewport.setAttribute('aria-label', `Strain-wave drive, ${preset}, ${assembly.parts.length} parts`);
+    const url = new URL(location.href);
+    if (preset === 'planetary') url.searchParams.delete('preset'); else url.searchParams.set('preset', preset);
+    history.replaceState(null, '', url);
+    showNotice('');
+  } catch (error) {
+    state.preset = state.assembly ? previous : preset;
+    updateReadouts();
+    showNotice(`${error.message}${state.assembly ? ` Showing ${previous}.` : ''}`, true);
+  } finally {
+    state.loading = false;
+  }
+}
+
+$('rpm').addEventListener('input', () => { state.rpm = Number($('rpm').value); updateReadouts(); });
+$('playback').addEventListener('input', () => { state.playback = PLAYBACK[Number($('playback').value)]; updateReadouts(); });
+$('pause').addEventListener('click', () => {
+  const wasSeparated = state.explode > 0;
+  if (wasSeparated) { state.explode = 0; $('explode').value = 0; }
+  state.paused = !state.paused; updateGeometry(); updateReadouts();
+  if (wasSeparated) fitCamera();
+});
+$('reset-phase').addEventListener('click', () => { state.inputAngle = 0; updateGeometry(); updateReadouts(); });
+$('phase').addEventListener('input', () => { state.paused = true; state.inputAngle = Number($('phase').value) / 360 * TAU; updateGeometry(); updateReadouts(); });
+$('explode').addEventListener('input', () => { state.explode = Number($('explode').value) / 100; if (state.explode > 0) state.paused = true; updateGeometry(); updateReadouts(); });
+$('explode').addEventListener('change', () => fitCamera());
+$('hardware').addEventListener('click', () => { state.hardware = !state.hardware; applyOpacity(); updateReadouts(); });
+$('opaque').addEventListener('click', () => setAllOpacity());
+$('reveal').addEventListener('click', () => setAllOpacity({output: 0.08, ground: 0.15}));
+$('home').addEventListener('click', () => fitCamera());
+$('top').addEventListener('click', () => fitCamera(true));
+for (const button of document.querySelectorAll('[data-preset]')) button.addEventListener('click', () => { if (button.dataset.preset !== state.preset) showPreset(button.dataset.preset); });
+orbit.addEventListener('start', () => { $('home').setAttribute('aria-pressed', 'false'); $('top').setAttribute('aria-pressed', 'false'); });
+updateReadouts();
+let last = performance.now(), lastReadout = 0;
+function frame(now) {
+  requestAnimationFrame(frame);
+  const dt = Math.min((now - last) / 1000, 0.05); last = now;
+  if (document.hidden) return;
+  if (state.assembly && !state.paused && state.explode === 0 && state.rpm > 0) {
+    state.inputAngle += dt * TAU * state.rpm / 60 * state.playback;
+    updateGeometry();
+    if (now - lastReadout > 120) { updatePhaseReadout(); lastReadout = now; }
+  }
+  orbit.update(); renderer.render(scene, camera);
+}
+requestAnimationFrame(frame);
+showPreset(state.preset);
+</script>
+<script>
+addEventListener('error', event => {
+  if (event.message && /import|module/i.test(event.message)) {
+    const notice = document.getElementById('notice');
+    notice.hidden = false; notice.classList.add('error');
+    notice.textContent = 'The 3D library could not load: the viewer needs the internet for Three.js.';
+  }
+});
+</script>
+</body>
+</html>

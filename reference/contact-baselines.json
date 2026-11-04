@@ -1,0 +1,804 @@
+{
+  "method": "Exact BRep Common volume on the unmodified default package, before the rotational-clearance corrections. Unchanged fits supply the nominal contact calibration.",
+  "units": "mm",
+  "relative_margin": 0.05,
+  "absolute_margin_mm3": 0.05,
+  "variants": {
+    "plain": {
+      "parameters": {
+        "variant": "plain",
+        "output_bearing": "6816-2RS",
+        "motor_clearance": 0.2,
+        "flex_teeth": 120,
+        "module": 0.7,
+        "flex_wall": 1.5,
+        "flex_height": 16.0,
+        "planet_width": 16.0,
+        "flex_axial_clearance": 0.0,
+        "roller_preload": 0.7,
+        "planet_preload": 0.105381480006292,
+        "sun_teeth": 28,
+        "planet_teeth": 28,
+        "helix_angle": 30.0,
+        "tooth_offset": 0.0,
+        "bearing_offset": 0.0,
+        "roller_pocket_offset": 0.0,
+        "insert_offset": 0.0,
+        "motor_pilot_offset": 0.0,
+        "shaft_offset": 0.0
+      },
+      "contacts": [
+        {
+          "parts": [
+            "circular_spline",
+            "housing_insert_1"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.852902075279005
+        },
+        {
+          "parts": [
+            "circular_spline",
+            "housing_insert_2"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.85290207527897
+        },
+        {
+          "parts": [
+            "circular_spline",
+            "housing_insert_3"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.852902075278998
+        },
+        {
+          "parts": [
+            "circular_spline",
+            "housing_insert_4"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.852902075278983
+        },
+        {
+          "parts": [
+            "circular_spline",
+            "flexspline"
+          ],
+          "kind": "preload",
+          "overlap_mm3": 175.3908758297145
+        },
+        {
+          "parts": [
+            "journal_sleeve",
+            "output_bearing"
+          ],
+          "kind": "crush_rib",
+          "overlap_mm3": 24.65432279510133
+        },
+        {
+          "parts": [
+            "dynamic_spline",
+            "output_bearing"
+          ],
+          "kind": "crush_rib",
+          "overlap_mm3": 9.908713367834942
+        },
+        {
+          "parts": [
+            "dynamic_spline",
+            "output_cap_insert_1"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.85290207527902
+        },
+        {
+          "parts": [
+            "dynamic_spline",
+            "output_cap_insert_2"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.852902075279005
+        },
+        {
+          "parts": [
+            "dynamic_spline",
+            "output_cap_insert_3"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.852902075279005
+        },
+        {
+          "parts": [
+            "dynamic_spline",
+            "output_cap_insert_4"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.852902075279005
+        },
+        {
+          "parts": [
+            "dynamic_spline",
+            "output_cap_insert_5"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.85290207527902
+        },
+        {
+          "parts": [
+            "dynamic_spline",
+            "output_cap_insert_6"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.85290207527901
+        },
+        {
+          "parts": [
+            "dynamic_spline",
+            "output_cap_insert_7"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.852902075278983
+        },
+        {
+          "parts": [
+            "dynamic_spline",
+            "output_cap_insert_8"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.852902075279005
+        },
+        {
+          "parts": [
+            "dynamic_spline",
+            "payload_insert_1"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.852902075279047
+        },
+        {
+          "parts": [
+            "dynamic_spline",
+            "payload_insert_2"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.852902075279054
+        },
+        {
+          "parts": [
+            "dynamic_spline",
+            "payload_insert_3"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.852902075279047
+        },
+        {
+          "parts": [
+            "dynamic_spline",
+            "payload_insert_4"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.852902075279047
+        },
+        {
+          "parts": [
+            "dynamic_spline",
+            "payload_insert_5"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.85290207527906
+        },
+        {
+          "parts": [
+            "dynamic_spline",
+            "payload_insert_6"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.852902075279047
+        },
+        {
+          "parts": [
+            "motor_screw_1",
+            "motor_nut_1"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 12.842830767875078
+        },
+        {
+          "parts": [
+            "motor_screw_2",
+            "motor_nut_2"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 12.842830767875064
+        },
+        {
+          "parts": [
+            "motor_screw_3",
+            "motor_nut_3"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 12.842830767875068
+        },
+        {
+          "parts": [
+            "motor_screw_4",
+            "motor_nut_4"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 12.842830767875057
+        },
+        {
+          "parts": [
+            "housing_insert_1",
+            "housing_screw_1"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 8.099418560036185
+        },
+        {
+          "parts": [
+            "housing_insert_2",
+            "housing_screw_2"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 8.099418560036193
+        },
+        {
+          "parts": [
+            "housing_insert_3",
+            "housing_screw_3"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 8.09941856003619
+        },
+        {
+          "parts": [
+            "housing_insert_4",
+            "housing_screw_4"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 8.099418560036193
+        },
+        {
+          "parts": [
+            "output_cap_insert_1",
+            "output_cap_screw_1"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 8.639379797371934
+        },
+        {
+          "parts": [
+            "output_cap_insert_2",
+            "output_cap_screw_2"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 8.639379797371934
+        },
+        {
+          "parts": [
+            "output_cap_insert_3",
+            "output_cap_screw_3"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 8.639379797371928
+        },
+        {
+          "parts": [
+            "output_cap_insert_4",
+            "output_cap_screw_4"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 8.639379797371937
+        },
+        {
+          "parts": [
+            "output_cap_insert_5",
+            "output_cap_screw_5"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 8.639379797371934
+        },
+        {
+          "parts": [
+            "output_cap_insert_6",
+            "output_cap_screw_6"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 8.639379797371934
+        },
+        {
+          "parts": [
+            "output_cap_insert_7",
+            "output_cap_screw_7"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 8.63937979737193
+        },
+        {
+          "parts": [
+            "output_cap_insert_8",
+            "output_cap_screw_8"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 8.639379797371934
+        },
+        {
+          "parts": [
+            "flexspline",
+            "roller_1_lower"
+          ],
+          "kind": "preload",
+          "overlap_mm3": 10.27639422834559
+        },
+        {
+          "parts": [
+            "flexspline",
+            "roller_1_upper"
+          ],
+          "kind": "preload",
+          "overlap_mm3": 10.27639422834559
+        },
+        {
+          "parts": [
+            "flexspline",
+            "roller_2_lower"
+          ],
+          "kind": "preload",
+          "overlap_mm3": 10.276394228345605
+        },
+        {
+          "parts": [
+            "flexspline",
+            "roller_2_upper"
+          ],
+          "kind": "preload",
+          "overlap_mm3": 10.276394228345607
+        },
+        {
+          "parts": [
+            "roller_hub",
+            "roller_1_axle_insert"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.85290207527899
+        },
+        {
+          "parts": [
+            "roller_hub",
+            "roller_2_axle_insert"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.852902075278976
+        },
+        {
+          "parts": [
+            "roller_hub",
+            "shaft_clamp_insert"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.852902075278987
+        },
+        {
+          "parts": [
+            "roller_1_axle_insert",
+            "roller_1_axle"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 8.63937979737193
+        },
+        {
+          "parts": [
+            "roller_2_axle_insert",
+            "roller_2_axle"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 8.63937979737193
+        },
+        {
+          "parts": [
+            "shaft_clamp_screw",
+            "shaft_clamp_insert"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 8.639379797371928
+        }
+      ]
+    },
+    "planetary": {
+      "parameters": {
+        "variant": "planetary",
+        "output_bearing": "6816-2RS",
+        "motor_clearance": 0.2,
+        "flex_teeth": 120,
+        "module": 0.7,
+        "flex_wall": 1.62907222000944,
+        "flex_height": 16.0,
+        "planet_width": 16.0,
+        "flex_axial_clearance": 0.0,
+        "roller_preload": 0.7,
+        "planet_preload": 0.105381480006292,
+        "sun_teeth": 28,
+        "planet_teeth": 28,
+        "helix_angle": 30.0,
+        "tooth_offset": 0.0,
+        "bearing_offset": 0.0,
+        "roller_pocket_offset": 0.0,
+        "insert_offset": 0.0,
+        "motor_pilot_offset": 0.0,
+        "shaft_offset": 0.0
+      },
+      "contacts": [
+        {
+          "parts": [
+            "circular_spline",
+            "housing_insert_1"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.852902075279005
+        },
+        {
+          "parts": [
+            "circular_spline",
+            "housing_insert_2"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.85290207527897
+        },
+        {
+          "parts": [
+            "circular_spline",
+            "housing_insert_3"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.852902075278998
+        },
+        {
+          "parts": [
+            "circular_spline",
+            "housing_insert_4"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.852902075278983
+        },
+        {
+          "parts": [
+            "circular_spline",
+            "flexspline"
+          ],
+          "kind": "preload",
+          "overlap_mm3": 315.949682150587
+        },
+        {
+          "parts": [
+            "journal_sleeve",
+            "output_bearing"
+          ],
+          "kind": "crush_rib",
+          "overlap_mm3": 24.65432279510133
+        },
+        {
+          "parts": [
+            "dynamic_spline",
+            "output_bearing"
+          ],
+          "kind": "crush_rib",
+          "overlap_mm3": 9.908713367834942
+        },
+        {
+          "parts": [
+            "dynamic_spline",
+            "output_cap_insert_1"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.85290207527902
+        },
+        {
+          "parts": [
+            "dynamic_spline",
+            "output_cap_insert_2"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.852902075279005
+        },
+        {
+          "parts": [
+            "dynamic_spline",
+            "output_cap_insert_3"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.852902075279005
+        },
+        {
+          "parts": [
+            "dynamic_spline",
+            "output_cap_insert_4"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.852902075279005
+        },
+        {
+          "parts": [
+            "dynamic_spline",
+            "output_cap_insert_5"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.85290207527902
+        },
+        {
+          "parts": [
+            "dynamic_spline",
+            "output_cap_insert_6"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.85290207527901
+        },
+        {
+          "parts": [
+            "dynamic_spline",
+            "output_cap_insert_7"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.852902075278983
+        },
+        {
+          "parts": [
+            "dynamic_spline",
+            "output_cap_insert_8"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.852902075279005
+        },
+        {
+          "parts": [
+            "dynamic_spline",
+            "payload_insert_1"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.852902075279047
+        },
+        {
+          "parts": [
+            "dynamic_spline",
+            "payload_insert_2"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.852902075279054
+        },
+        {
+          "parts": [
+            "dynamic_spline",
+            "payload_insert_3"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.852902075279047
+        },
+        {
+          "parts": [
+            "dynamic_spline",
+            "payload_insert_4"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.852902075279047
+        },
+        {
+          "parts": [
+            "dynamic_spline",
+            "payload_insert_5"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.85290207527906
+        },
+        {
+          "parts": [
+            "dynamic_spline",
+            "payload_insert_6"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.852902075279047
+        },
+        {
+          "parts": [
+            "motor_screw_1",
+            "motor_nut_1"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 12.842830767875078
+        },
+        {
+          "parts": [
+            "motor_screw_2",
+            "motor_nut_2"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 12.842830767875064
+        },
+        {
+          "parts": [
+            "motor_screw_3",
+            "motor_nut_3"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 12.842830767875068
+        },
+        {
+          "parts": [
+            "motor_screw_4",
+            "motor_nut_4"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 12.842830767875057
+        },
+        {
+          "parts": [
+            "housing_insert_1",
+            "housing_screw_1"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 8.099418560036185
+        },
+        {
+          "parts": [
+            "housing_insert_2",
+            "housing_screw_2"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 8.099418560036193
+        },
+        {
+          "parts": [
+            "housing_insert_3",
+            "housing_screw_3"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 8.09941856003619
+        },
+        {
+          "parts": [
+            "housing_insert_4",
+            "housing_screw_4"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 8.099418560036193
+        },
+        {
+          "parts": [
+            "output_cap_insert_1",
+            "output_cap_screw_1"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 8.639379797371934
+        },
+        {
+          "parts": [
+            "output_cap_insert_2",
+            "output_cap_screw_2"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 8.639379797371934
+        },
+        {
+          "parts": [
+            "output_cap_insert_3",
+            "output_cap_screw_3"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 8.639379797371928
+        },
+        {
+          "parts": [
+            "output_cap_insert_4",
+            "output_cap_screw_4"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 8.639379797371937
+        },
+        {
+          "parts": [
+            "output_cap_insert_5",
+            "output_cap_screw_5"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 8.639379797371934
+        },
+        {
+          "parts": [
+            "output_cap_insert_6",
+            "output_cap_screw_6"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 8.639379797371934
+        },
+        {
+          "parts": [
+            "output_cap_insert_7",
+            "output_cap_screw_7"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 8.63937979737193
+        },
+        {
+          "parts": [
+            "output_cap_insert_8",
+            "output_cap_screw_8"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 8.639379797371934
+        },
+        {
+          "parts": [
+            "flexspline",
+            "planet_gear_1"
+          ],
+          "kind": "preload",
+          "overlap_mm3": 4.451209833451299
+        },
+        {
+          "parts": [
+            "flexspline",
+            "planet_gear_2"
+          ],
+          "kind": "preload",
+          "overlap_mm3": 4.451209909853581
+        },
+        {
+          "parts": [
+            "sun_gear",
+            "shaft_clamp_insert"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.852902075278987
+        },
+        {
+          "parts": [
+            "carrier_lower",
+            "planet_1_axle_insert"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.852902075279015
+        },
+        {
+          "parts": [
+            "carrier_lower",
+            "planet_2_axle_insert"
+          ],
+          "kind": "heat_set_insert",
+          "overlap_mm3": 19.852902075279015
+        },
+        {
+          "parts": [
+            "carrier_upper",
+            "carrier_bearing"
+          ],
+          "kind": "crush_rib",
+          "overlap_mm3": 4.072726291658665
+        },
+        {
+          "parts": [
+            "planet_1_axle_insert",
+            "planet_1_axle"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 8.639379797371918
+        },
+        {
+          "parts": [
+            "planet_2_axle_insert",
+            "planet_2_axle"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 8.639379797371918
+        },
+        {
+          "parts": [
+            "shaft_clamp_screw",
+            "shaft_clamp_insert"
+          ],
+          "kind": "screw_thread",
+          "overlap_mm3": 8.639379797371928
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "strain-wave-drive"
+version = "0.1.0"
+description = "Parametric printed strain-wave drive and fit-test coupons"
+requires-python = ">=3.12,<3.13"
+license = "MIT"
+dependencies = ["cadquery==2.8.0", "numpy", "shapely", "trimesh"]
+
+[project.scripts]
+strain-wave-drive = "strain_wave_drive.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/strain_wave_drive"]
+
+[dependency-groups]
+dev = ["pytest"]
