@@ -250,12 +250,6 @@ The tooth forms, preloads and bearing fits come from a prototype that was printe
 
 <!-- /generated -->
 
-## Limits
-
-- This packaging has not been printed or run. The prototype that ran used the same teeth and fits in a larger housing; the full-height planets and zero axial float need the coupons and an assembly trial.
-- No torque, efficiency, backlash, stiffness or life rating until one is measured.
-- The flex deformation in the viewer and in `report.json` is a geometric model, not an elastic or contact solution.
-
 ## License
 
 Code (`src/`, `tools/`, `viewer/`, `tests/`): [MIT](LICENSE). Design files (`models/`, `images/`): [CERN-OHL-P-2.0](LICENSE-HARDWARE).
